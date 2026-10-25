@@ -1,0 +1,9 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="Node000000" title=" " alt="" coords="5,47,162,73"/>
+<area shape="rect" id="Node000001" href="$class_unity_interface_1_1_yield_instruction_singleton-1-g.html" title="It&#39;s a good choice for saving memory!" alt="" coords="210,39,406,81"/>
+<area shape="poly" id="edge9_Node000000_Node000001" title=" " alt="" coords="177,57,212,60,206,60,177,63"/>
+<area shape="rect" id="Node000002" href="$class_unity_interface_1_1_wait_for_built_in_resource.html" title="Wait for all built&#45;in resources loaded!" alt="" coords="467,5,645,48"/>
+<area shape="poly" id="edge10_Node000001_Node000002" title=" " alt="" coords="421,42,469,38,464,39,422,47"/>
+<area shape="rect" id="Node000003" href="$class_unity_interface_1_1_wait_for_premade_resource.html" title="Wait for all asset (built&#45;in and external) loaded!" alt="" coords="454,72,658,115"/>
+<area shape="poly" id="edge11_Node000001_Node000003" title=" " alt="" coords="422,73,456,80,451,80,421,78"/>
+</map>

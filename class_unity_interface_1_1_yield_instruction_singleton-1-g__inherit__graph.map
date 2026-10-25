@@ -1,0 +1,9 @@
+<map id="UnityInterface.YieldInstructionSingleton&lt; T &gt;" name="UnityInterface.YieldInstructionSingleton&lt; T &gt;">
+<area shape="rect" id="Node000001" title="It&#39;s a good choice for saving memory!" alt="" coords="104,80,301,123"/>
+<area shape="rect" id="Node000003" href="$class_unity_interface_1_1_wait_for_built_in_resource.html" title="Wait for all built&#45;in resources loaded!" alt="" coords="5,171,184,213"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="168,132,121,172,118,168,163,134"/>
+<area shape="rect" id="Node000004" href="$class_unity_interface_1_1_wait_for_premade_resource.html" title="Wait for all asset (built&#45;in and external) loaded!" alt="" coords="208,171,413,213"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="240,130,288,170,283,170,238,135"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="124,5,281,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="204,45,205,81,200,79,201,50"/>
+</map>

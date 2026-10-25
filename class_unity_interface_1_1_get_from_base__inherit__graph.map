@@ -1,0 +1,13 @@
+<map id="UnityInterface.GetFromBase" name="UnityInterface.GetFromBase">
+<area shape="rect" id="Node000001" title="It only works with ApplyProperties method. If there aren&#39;t any GetFrom suits your request...." alt="" coords="124,81,312,108"/>
+<area shape="rect" id="Node000003" href="$class_unity_interface_1_1_get_from.html" title=" " alt="" coords="392,5,550,32"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="267,73,359,41,406,32,401,33,361,47,269,78"/>
+<area shape="rect" id="Node000004" href="$class_unity_interface_1_1_get_from_child.html" title=" " alt="" coords="376,56,565,83"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="327,81,379,78,373,79,328,86"/>
+<area shape="rect" id="Node000005" href="$class_unity_interface_1_1_get_from_resources.html" title=" " alt="" coords="360,107,581,133"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="327,103,362,109,357,109,327,108"/>
+<area shape="rect" id="Node000006" href="$class_unity_interface_1_1_get_from_scene.html" title=" " alt="" coords="373,157,568,184"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="269,111,361,143,406,157,401,157,359,148,268,117"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,81,76,108"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="90,92,126,93,121,96,92,97"/>
+</map>

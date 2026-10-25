@@ -1,0 +1,7 @@
+<map id="UnityInterface.WaitForBuiltInResource" name="UnityInterface.WaitForBuiltInResource">
+<area shape="rect" id="Node000001" title="Wait for all built&#45;in resources loaded!" alt="" coords="14,171,193,213"/>
+<area shape="rect" id="Node000002" href="$class_unity_interface_1_1_yield_instruction_singleton-1-g.html" title="It&#39;s a good choice for saving memory!" alt="" coords="5,80,202,123"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="105,136,106,171,101,169,102,140"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="25,5,182,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="105,45,106,80,101,79,102,50"/>
+</map>

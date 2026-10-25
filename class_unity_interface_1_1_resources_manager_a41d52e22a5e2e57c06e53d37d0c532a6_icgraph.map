@@ -1,0 +1,9 @@
+<map id="UnityInterface.ResourcesManager.Get" name="UnityInterface.ResourcesManager.Get">
+<area shape="rect" id="Node000001" title="Get a list of objects by type. It will include built&#45;in resources, loaded assets and prefab children." alt="" coords="224,72,394,115"/>
+<area shape="rect" id="Node000002" href="$class_unity_interface_1_1_resources_manager.html#aabb74bbfb451765a112508f740d85f99" title="Get a list of objects by type. It will include built&#45;in resources, loaded assets and prefab children." alt="" coords="5,5,176,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="220,68,163,51,163,46,225,66"/>
+<area shape="rect" id="Node000003" href="$class_unity_interface_1_1_resources_manager.html#a306e17c64252cc1fbc0790e56bc5ba51" title="Get a list of objects by type. It will include built&#45;in resources, loaded assets and prefab children." alt="" coords="5,72,176,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="206,94,177,96,176,91,211,93"/>
+<area shape="rect" id="Node000004" href="$class_unity_interface_1_1_resources_manager.html#ad4a871961a462c9e4ba23bd4e12db9fb" title="Get a list of objects by type. It will include built&#45;in resources, loaded assets and prefab children." alt="" coords="5,139,176,181"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="225,119,164,141,162,135,220,120"/>
+</map>

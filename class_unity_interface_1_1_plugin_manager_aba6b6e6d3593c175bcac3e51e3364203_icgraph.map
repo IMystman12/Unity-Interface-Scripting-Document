@@ -1,0 +1,5 @@
+<map id="UnityInterface.PluginManager.GetProjectFolder" name="UnityInterface.PluginManager.GetProjectFolder">
+<area shape="rect" id="Node000001" title="Return the folder: Project_{plugin.Info.Metadata.GUID} full path." alt="" coords="230,5,427,48"/>
+<area shape="rect" id="Node000002" href="$class_unity_interface_1_1_collections.html#a06d53d21ec798e24f5c1168acd5a1eda" title="Find the first gameObject with script(O) and replace it to script(C)." alt="" coords="5,5,182,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="211,27,182,29,182,24,217,26"/>
+</map>
