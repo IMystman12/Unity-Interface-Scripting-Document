@@ -1,0 +1,91 @@
+\doxysection{RM.\+Built\+In\+Load.\+cs}
+\hypertarget{_r_m_8_built_in_load_8cs_source}{}\label{_r_m_8_built_in_load_8cs_source}\index{E:/Baldi s Basics Games/Plugins/Unity Interface/Main/ResourcesManager/RM.BuiltInLoad.cs@{E:/Baldi s Basics Games/Plugins/Unity Interface/Main/ResourcesManager/RM.BuiltInLoad.cs}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_r_m_8_built_in_load_8cs_source_l00001}00001\ \textcolor{keyword}{using\ }System.IO;}
+\DoxyCodeLine{\Hypertarget{_r_m_8_built_in_load_8cs_source_l00002}00002\ \textcolor{keyword}{using\ }Newtonsoft.Json;}
+\DoxyCodeLine{\Hypertarget{_r_m_8_built_in_load_8cs_source_l00003}00003\ \textcolor{keyword}{using\ }UnityEngine;}
+\DoxyCodeLine{\Hypertarget{_r_m_8_built_in_load_8cs_source_l00004}00004\ \textcolor{keyword}{using\ }UnityEngine.Networking;}
+\DoxyCodeLine{\Hypertarget{_r_m_8_built_in_load_8cs_source_l00005}00005\ \textcolor{keyword}{using\ }Object\ =\ UnityEngine.Object;}
+\DoxyCodeLine{\Hypertarget{_r_m_8_built_in_load_8cs_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{_r_m_8_built_in_load_8cs_source_l00007}00007\ \textcolor{keyword}{namespace\ }\doxymbox{\hyperlink{namespace_unity_interface}{UnityInterface}}}
+\DoxyCodeLine{\Hypertarget{_r_m_8_built_in_load_8cs_source_l00008}00008\ \{}
+\DoxyCodeLine{\Hypertarget{_r_m_8_built_in_load_8cs_source_l00009}\doxymbox{\hyperlink{interface_unity_interface_1_1_i_asset_loader-1-g}{00009}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{interface\ }IAssetLoader<out\ T>\ where\ T\ :\ Object}
+\DoxyCodeLine{\Hypertarget{_r_m_8_built_in_load_8cs_source_l00010}00010\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_r_m_8_built_in_load_8cs_source_l00011}00011\ \ \ \ \ \ \ \ \ T\ Load(\textcolor{keywordtype}{string}\ path);}
+\DoxyCodeLine{\Hypertarget{_r_m_8_built_in_load_8cs_source_l00012}00012\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_r_m_8_built_in_load_8cs_source_l00013}\doxymbox{\hyperlink{class_unity_interface_1_1_resources_manager}{00013}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ \textcolor{keyword}{partial\ class\ }\doxymbox{\hyperlink{class_unity_interface_1_1_resources_manager}{ResourcesManager}}}
+\DoxyCodeLine{\Hypertarget{_r_m_8_built_in_load_8cs_source_l00014}00014\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_r_m_8_built_in_load_8cs_source_l00015}00015\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ T\ GetMetadata<T>(\textcolor{keyword}{this}\ \textcolor{keywordtype}{string}\ pathBase,\ T\ defualt)\ where\ T\ :\ \textcolor{keyword}{class}}
+\DoxyCodeLine{\Hypertarget{_r_m_8_built_in_load_8cs_source_l00016}00016\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_r_m_8_built_in_load_8cs_source_l00017}00017\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (Path.GetExtension(pathBase)\ ==\ \textcolor{stringliteral}{"{}.meta"{}})}
+\DoxyCodeLine{\Hypertarget{_r_m_8_built_in_load_8cs_source_l00018}00018\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_r_m_8_built_in_load_8cs_source_l00019}00019\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{null};}
+\DoxyCodeLine{\Hypertarget{_r_m_8_built_in_load_8cs_source_l00020}00020\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_r_m_8_built_in_load_8cs_source_l00021}00021\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ metaPath\ =\ pathBase\ +\ \textcolor{stringliteral}{"{}.meta"{}};}
+\DoxyCodeLine{\Hypertarget{_r_m_8_built_in_load_8cs_source_l00022}00022\ \ \ \ \ \ \ \ \ \ \ \ \ T\ metadata0\ =\ \textcolor{keyword}{null};}
+\DoxyCodeLine{\Hypertarget{_r_m_8_built_in_load_8cs_source_l00023}00023\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (File.Exists(metaPath))}
+\DoxyCodeLine{\Hypertarget{_r_m_8_built_in_load_8cs_source_l00024}00024\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_r_m_8_built_in_load_8cs_source_l00025}00025\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ metadata0\ =\ FromJson<T>(File.ReadAllText(metaPath));}
+\DoxyCodeLine{\Hypertarget{_r_m_8_built_in_load_8cs_source_l00026}00026\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_r_m_8_built_in_load_8cs_source_l00027}00027\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (metadata0\ ==\ \textcolor{keyword}{null})}
+\DoxyCodeLine{\Hypertarget{_r_m_8_built_in_load_8cs_source_l00028}00028\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_r_m_8_built_in_load_8cs_source_l00029}00029\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ File.WriteAllText(metaPath,\ ToJson(defualt));}
+\DoxyCodeLine{\Hypertarget{_r_m_8_built_in_load_8cs_source_l00030}00030\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_r_m_8_built_in_load_8cs_source_l00031}00031\ \ \ \ \ \ \ \ \ \ \ \ \ metadata0\ =\ JsonUtility.FromJson<T>(File.ReadAllText(metaPath));}
+\DoxyCodeLine{\Hypertarget{_r_m_8_built_in_load_8cs_source_l00032}00032\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ metadata0;}
+\DoxyCodeLine{\Hypertarget{_r_m_8_built_in_load_8cs_source_l00033}00033\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_r_m_8_built_in_load_8cs_source_l00034}00034\ }
+\DoxyCodeLine{\Hypertarget{_r_m_8_built_in_load_8cs_source_l00035}00035\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ Texture2D\ GetTexture2DFromPathSimple(\textcolor{keywordtype}{string}\ path)}
+\DoxyCodeLine{\Hypertarget{_r_m_8_built_in_load_8cs_source_l00036}00036\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_r_m_8_built_in_load_8cs_source_l00037}00037\ \ \ \ \ \ \ \ \ \ \ \ \ Texture2D\ t\ =\ \textcolor{keyword}{new}\ Texture2D(1,\ 1);}
+\DoxyCodeLine{\Hypertarget{_r_m_8_built_in_load_8cs_source_l00038}00038\ \ \ \ \ \ \ \ \ \ \ \ \ t.name\ =\ Path.GetFileNameWithoutExtension(path);}
+\DoxyCodeLine{\Hypertarget{_r_m_8_built_in_load_8cs_source_l00039}00039\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (t.LoadImage(File.ReadAllBytes(path)))}
+\DoxyCodeLine{\Hypertarget{_r_m_8_built_in_load_8cs_source_l00040}00040\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_r_m_8_built_in_load_8cs_source_l00041}00041\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ t;}
+\DoxyCodeLine{\Hypertarget{_r_m_8_built_in_load_8cs_source_l00042}00042\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_r_m_8_built_in_load_8cs_source_l00043}00043\ \ \ \ \ \ \ \ \ \ \ \ \ Debug.LogWarning(\textcolor{stringliteral}{"{}Could\ not\ Get\ texture\ from\ path"{}});}
+\DoxyCodeLine{\Hypertarget{_r_m_8_built_in_load_8cs_source_l00044}00044\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{null};}
+\DoxyCodeLine{\Hypertarget{_r_m_8_built_in_load_8cs_source_l00045}00045\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_r_m_8_built_in_load_8cs_source_l00046}00046\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ Sprite\ Texture2DToSpriteSimple(Texture2D\ texture)}
+\DoxyCodeLine{\Hypertarget{_r_m_8_built_in_load_8cs_source_l00047}00047\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_r_m_8_built_in_load_8cs_source_l00048}00048\ \ \ \ \ \ \ \ \ \ \ \ \ Sprite\ s\ =\ Sprite.Create(texture,\ \textcolor{keyword}{new}\ Rect(0,\ 0,\ texture.width,\ texture.height),\ Vector2.one\ *\ 0.5f);}
+\DoxyCodeLine{\Hypertarget{_r_m_8_built_in_load_8cs_source_l00049}00049\ \ \ \ \ \ \ \ \ \ \ \ \ s.name\ =\ texture.name;}
+\DoxyCodeLine{\Hypertarget{_r_m_8_built_in_load_8cs_source_l00050}00050\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ s;}
+\DoxyCodeLine{\Hypertarget{_r_m_8_built_in_load_8cs_source_l00051}00051\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_r_m_8_built_in_load_8cs_source_l00052}00052\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ AudioClip\ GetAudioClipFromPath(\textcolor{keywordtype}{string}\ path,\ AudioType\ type\ =\ AudioType.UNKNOWN)}
+\DoxyCodeLine{\Hypertarget{_r_m_8_built_in_load_8cs_source_l00053}00053\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_r_m_8_built_in_load_8cs_source_l00054}00054\ \ \ \ \ \ \ \ \ \ \ \ \ AudioClip\ clip;}
+\DoxyCodeLine{\Hypertarget{_r_m_8_built_in_load_8cs_source_l00055}00055\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{using}\ (UnityWebRequest\ request\ =\ UnityWebRequestMultimedia.GetAudioClip(path,\ type))}
+\DoxyCodeLine{\Hypertarget{_r_m_8_built_in_load_8cs_source_l00056}00056\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_r_m_8_built_in_load_8cs_source_l00057}00057\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ UnityWebRequestAsyncOperation\ operation\ =\ request.SendWebRequest();}
+\DoxyCodeLine{\Hypertarget{_r_m_8_built_in_load_8cs_source_l00058}00058\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (!operation.isDone)\ \{\ \}}
+\DoxyCodeLine{\Hypertarget{_r_m_8_built_in_load_8cs_source_l00059}00059\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ clip\ =\ DownloadHandlerAudioClip.GetContent(request);}
+\DoxyCodeLine{\Hypertarget{_r_m_8_built_in_load_8cs_source_l00060}00060\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_r_m_8_built_in_load_8cs_source_l00061}00061\ \ \ \ \ \ \ \ \ \ \ \ \ clip.name\ =\ Path.GetFileNameWithoutExtension(path);}
+\DoxyCodeLine{\Hypertarget{_r_m_8_built_in_load_8cs_source_l00062}00062\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ clip;}
+\DoxyCodeLine{\Hypertarget{_r_m_8_built_in_load_8cs_source_l00063}00063\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_r_m_8_built_in_load_8cs_source_l00064}00064\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ Mesh\ GetMeshFromPath(\textcolor{keywordtype}{string}\ path)}
+\DoxyCodeLine{\Hypertarget{_r_m_8_built_in_load_8cs_source_l00065}00065\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_r_m_8_built_in_load_8cs_source_l00066}00066\ \ \ \ \ \ \ \ \ \ \ \ \ Mesh\ mesh\ =\ JsonConvert.DeserializeObject<Mesh>(File.ReadAllText(path));}
+\DoxyCodeLine{\Hypertarget{_r_m_8_built_in_load_8cs_source_l00067}00067\ \ \ \ \ \ \ \ \ \ \ \ \ mesh.name\ =\ Path.GetFileNameWithoutExtension(path);}
+\DoxyCodeLine{\Hypertarget{_r_m_8_built_in_load_8cs_source_l00068}00068\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ mesh;}
+\DoxyCodeLine{\Hypertarget{_r_m_8_built_in_load_8cs_source_l00069}00069\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_r_m_8_built_in_load_8cs_source_l00070}00070\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ AssetBundle\ GetAssetBundleFromPath(\textcolor{keywordtype}{string}\ path)}
+\DoxyCodeLine{\Hypertarget{_r_m_8_built_in_load_8cs_source_l00071}00071\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_r_m_8_built_in_load_8cs_source_l00072}00072\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (Path.GetExtension(path)\ ==\ \textcolor{stringliteral}{"{}.manifest"{}})}
+\DoxyCodeLine{\Hypertarget{_r_m_8_built_in_load_8cs_source_l00073}00073\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_r_m_8_built_in_load_8cs_source_l00074}00074\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{null};}
+\DoxyCodeLine{\Hypertarget{_r_m_8_built_in_load_8cs_source_l00075}00075\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_r_m_8_built_in_load_8cs_source_l00076}00076\ }
+\DoxyCodeLine{\Hypertarget{_r_m_8_built_in_load_8cs_source_l00077}00077\ \ \ \ \ \ \ \ \ \ \ \ \ AssetBundle\ ab\ =\ AssetBundle.LoadFromFile(path);}
+\DoxyCodeLine{\Hypertarget{_r_m_8_built_in_load_8cs_source_l00078}00078\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{foreach}\ (var\ item\ \textcolor{keywordflow}{in}\ ab.LoadAllAssets())}
+\DoxyCodeLine{\Hypertarget{_r_m_8_built_in_load_8cs_source_l00079}00079\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_r_m_8_built_in_load_8cs_source_l00080}00080\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Add(item);}
+\DoxyCodeLine{\Hypertarget{_r_m_8_built_in_load_8cs_source_l00081}00081\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_r_m_8_built_in_load_8cs_source_l00082}00082\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ ab;}
+\DoxyCodeLine{\Hypertarget{_r_m_8_built_in_load_8cs_source_l00083}00083\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_r_m_8_built_in_load_8cs_source_l00084}00084\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_r_m_8_built_in_load_8cs_source_l00085}00085\ \}}
+
+\end{DoxyCode}

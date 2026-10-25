@@ -1,0 +1,102 @@
+\doxysection{Built\+In\+Asset\+Loaders.\+cs}
+\hypertarget{_built_in_asset_loaders_8cs_source}{}\label{_built_in_asset_loaders_8cs_source}\index{E:/Baldi s Basics Games/Plugins/Unity Interface/Main/ResourcesManager/BuiltInAssetLoaders.cs@{E:/Baldi s Basics Games/Plugins/Unity Interface/Main/ResourcesManager/BuiltInAssetLoaders.cs}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_built_in_asset_loaders_8cs_source_l00001}00001\ \textcolor{keyword}{using\ }System;}
+\DoxyCodeLine{\Hypertarget{_built_in_asset_loaders_8cs_source_l00002}00002\ \textcolor{keyword}{using\ }System.IO;}
+\DoxyCodeLine{\Hypertarget{_built_in_asset_loaders_8cs_source_l00003}00003\ \textcolor{keyword}{using\ }System.Reflection;}
+\DoxyCodeLine{\Hypertarget{_built_in_asset_loaders_8cs_source_l00004}00004\ \textcolor{keyword}{using\ }UnityEngine;}
+\DoxyCodeLine{\Hypertarget{_built_in_asset_loaders_8cs_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{_built_in_asset_loaders_8cs_source_l00006}\doxymbox{\hyperlink{namespace_unity_interface_1_1_asset_loaders}{00006}}\ \textcolor{keyword}{namespace\ }\doxymbox{\hyperlink{namespace_unity_interface_1_1_asset_loaders}{UnityInterface.AssetLoaders}}}
+\DoxyCodeLine{\Hypertarget{_built_in_asset_loaders_8cs_source_l00007}00007\ \{}
+\DoxyCodeLine{\Hypertarget{_built_in_asset_loaders_8cs_source_l00008}00008\ \ \ \ \ [Serializable]}
+\DoxyCodeLine{\Hypertarget{_built_in_asset_loaders_8cs_source_l00009}\doxymbox{\hyperlink{class_unity_interface_1_1_asset_loaders_1_1_texture2_d_metadata}{00009}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_unity_interface_1_1_asset_loaders_1_1_texture2_d_metadata}{Texture2DMetadata}}}
+\DoxyCodeLine{\Hypertarget{_built_in_asset_loaders_8cs_source_l00010}00010\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_built_in_asset_loaders_8cs_source_l00011}00011\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{bool}\ isReadable;}
+\DoxyCodeLine{\Hypertarget{_built_in_asset_loaders_8cs_source_l00012}00012\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ TextureWrapMode\ wrapMode\ =\ TextureWrapMode.Repeat;}
+\DoxyCodeLine{\Hypertarget{_built_in_asset_loaders_8cs_source_l00013}00013\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ FilterMode\ filterMode\ =\ FilterMode.Point;}
+\DoxyCodeLine{\Hypertarget{_built_in_asset_loaders_8cs_source_l00014}00014\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{int}\ anisoLevel\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{_built_in_asset_loaders_8cs_source_l00015}00015\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ Texture2D\ LoadAndApply(\textcolor{keywordtype}{string}\ path)}
+\DoxyCodeLine{\Hypertarget{_built_in_asset_loaders_8cs_source_l00016}00016\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_built_in_asset_loaders_8cs_source_l00017}00017\ \ \ \ \ \ \ \ \ \ \ \ \ Texture2D\ t\ =\ \textcolor{keyword}{new}\ Texture2D(1,\ 1);}
+\DoxyCodeLine{\Hypertarget{_built_in_asset_loaders_8cs_source_l00018}00018\ \ \ \ \ \ \ \ \ \ \ \ \ t.name\ =\ Path.GetFileNameWithoutExtension(path);}
+\DoxyCodeLine{\Hypertarget{_built_in_asset_loaders_8cs_source_l00019}00019\ }
+\DoxyCodeLine{\Hypertarget{_built_in_asset_loaders_8cs_source_l00020}00020\ \ \ \ \ \ \ \ \ \ \ \ \ t.wrapMode\ =\ wrapMode;}
+\DoxyCodeLine{\Hypertarget{_built_in_asset_loaders_8cs_source_l00021}00021\ \ \ \ \ \ \ \ \ \ \ \ \ t.filterMode\ =\ filterMode;}
+\DoxyCodeLine{\Hypertarget{_built_in_asset_loaders_8cs_source_l00022}00022\ \ \ \ \ \ \ \ \ \ \ \ \ t.anisoLevel\ =\ anisoLevel;}
+\DoxyCodeLine{\Hypertarget{_built_in_asset_loaders_8cs_source_l00023}00023\ }
+\DoxyCodeLine{\Hypertarget{_built_in_asset_loaders_8cs_source_l00024}00024\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (t.LoadImage(File.ReadAllBytes(path),\ !isReadable))}
+\DoxyCodeLine{\Hypertarget{_built_in_asset_loaders_8cs_source_l00025}00025\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_built_in_asset_loaders_8cs_source_l00026}00026\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ t;}
+\DoxyCodeLine{\Hypertarget{_built_in_asset_loaders_8cs_source_l00027}00027\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_built_in_asset_loaders_8cs_source_l00028}00028\ \ \ \ \ \ \ \ \ \ \ \ \ Debug.LogWarning(\textcolor{stringliteral}{"{}Could\ not\ Get\ texture\ from\ path"{}});}
+\DoxyCodeLine{\Hypertarget{_built_in_asset_loaders_8cs_source_l00029}00029\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{null};}
+\DoxyCodeLine{\Hypertarget{_built_in_asset_loaders_8cs_source_l00030}00030\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_built_in_asset_loaders_8cs_source_l00031}00031\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_built_in_asset_loaders_8cs_source_l00032}00032\ }
+\DoxyCodeLine{\Hypertarget{_built_in_asset_loaders_8cs_source_l00033}00033\ \ \ \ \ [Serializable]}
+\DoxyCodeLine{\Hypertarget{_built_in_asset_loaders_8cs_source_l00034}\doxymbox{\hyperlink{class_unity_interface_1_1_asset_loaders_1_1_sprite_metadata}{00034}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_unity_interface_1_1_asset_loaders_1_1_sprite_metadata}{SpriteMetadata}}\ :\ \doxymbox{\hyperlink{class_unity_interface_1_1_asset_loaders_1_1_texture2_d_metadata}{Texture2DMetadata}}}
+\DoxyCodeLine{\Hypertarget{_built_in_asset_loaders_8cs_source_l00035}00035\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_built_in_asset_loaders_8cs_source_l00036}00036\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{float}\ rectX\ =\ 0,\ rectY\ =\ 0,\ rectWidth,\ rectHeight,\ pivotX\ =\ 0.5f,\ pivotY\ =\ 0.5f,\ pixelsPerUnit\ =\ 100;}
+\DoxyCodeLine{\Hypertarget{_built_in_asset_loaders_8cs_source_l00037}00037\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_built_in_asset_loaders_8cs_source_l00038}00038\ }
+\DoxyCodeLine{\Hypertarget{_built_in_asset_loaders_8cs_source_l00039}\doxymbox{\hyperlink{class_unity_interface_1_1_asset_loaders_1_1_texture2_d_loader}{00039}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_unity_interface_1_1_asset_loaders_1_1_texture2_d_loader}{Texture2DLoader}}\ :\ IAssetLoader<Texture2D>}
+\DoxyCodeLine{\Hypertarget{_built_in_asset_loaders_8cs_source_l00040}00040\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_built_in_asset_loaders_8cs_source_l00041}00041\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ \doxymbox{\hyperlink{class_unity_interface_1_1_asset_loaders_1_1_texture2_d_metadata}{Texture2DMetadata}}\ metadataEmpty\ =\ \textcolor{keyword}{new}\ \doxymbox{\hyperlink{class_unity_interface_1_1_asset_loaders_1_1_texture2_d_metadata}{Texture2DMetadata}}();}
+\DoxyCodeLine{\Hypertarget{_built_in_asset_loaders_8cs_source_l00042}00042\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ Texture2D\ Load(\textcolor{keywordtype}{string}\ path)\ =>\ (Path.GetExtension(path)\ ==\ \textcolor{stringliteral}{"{}.meta"{}})\ ?\ null\ :\ path.GetMetadata(metadataEmpty).LoadAndApply(path);}
+\DoxyCodeLine{\Hypertarget{_built_in_asset_loaders_8cs_source_l00043}00043\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_built_in_asset_loaders_8cs_source_l00044}00044\ }
+\DoxyCodeLine{\Hypertarget{_built_in_asset_loaders_8cs_source_l00045}\doxymbox{\hyperlink{class_unity_interface_1_1_asset_loaders_1_1_audio_clip_loader}{00045}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_unity_interface_1_1_asset_loaders_1_1_audio_clip_loader}{AudioClipLoader}}\ :\ IAssetLoader<AudioClip>}
+\DoxyCodeLine{\Hypertarget{_built_in_asset_loaders_8cs_source_l00046}00046\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_built_in_asset_loaders_8cs_source_l00047}00047\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ AudioClip\ Load(\textcolor{keywordtype}{string}\ path)\ =>\ \doxymbox{\hyperlink{class_unity_interface_1_1_resources_manager}{ResourcesManager}}.GetAudioClipFromPath(path);}
+\DoxyCodeLine{\Hypertarget{_built_in_asset_loaders_8cs_source_l00048}00048\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_built_in_asset_loaders_8cs_source_l00049}00049\ }
+\DoxyCodeLine{\Hypertarget{_built_in_asset_loaders_8cs_source_l00050}\doxymbox{\hyperlink{class_unity_interface_1_1_asset_loaders_1_1_sprite_loader}{00050}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_unity_interface_1_1_asset_loaders_1_1_sprite_loader}{SpriteLoader}}\ :\ IAssetLoader<Sprite>}
+\DoxyCodeLine{\Hypertarget{_built_in_asset_loaders_8cs_source_l00051}00051\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_built_in_asset_loaders_8cs_source_l00052}00052\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \doxymbox{\hyperlink{class_unity_interface_1_1_asset_loaders_1_1_sprite_metadata}{SpriteMetadata}}\ metadataEmpty\ =\ \textcolor{keyword}{new}\ \doxymbox{\hyperlink{class_unity_interface_1_1_asset_loaders_1_1_sprite_metadata}{SpriteMetadata}}();}
+\DoxyCodeLine{\Hypertarget{_built_in_asset_loaders_8cs_source_l00053}00053\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ Sprite\ Load(\textcolor{keywordtype}{string}\ path)}
+\DoxyCodeLine{\Hypertarget{_built_in_asset_loaders_8cs_source_l00054}00054\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_built_in_asset_loaders_8cs_source_l00055}00055\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (Path.GetExtension(path)\ ==\ \textcolor{stringliteral}{"{}.meta"{}})}
+\DoxyCodeLine{\Hypertarget{_built_in_asset_loaders_8cs_source_l00056}00056\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_built_in_asset_loaders_8cs_source_l00057}00057\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{null};}
+\DoxyCodeLine{\Hypertarget{_built_in_asset_loaders_8cs_source_l00058}00058\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_built_in_asset_loaders_8cs_source_l00059}00059\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ pathMeta\ =\ path\ +\ \textcolor{stringliteral}{"{}.meta"{}};}
+\DoxyCodeLine{\Hypertarget{_built_in_asset_loaders_8cs_source_l00060}00060\ \ \ \ \ \ \ \ \ \ \ \ \ Texture2D\ texture;\ Sprite\ s;\ \doxymbox{\hyperlink{class_unity_interface_1_1_asset_loaders_1_1_sprite_metadata}{SpriteMetadata}}\ metadata;}
+\DoxyCodeLine{\Hypertarget{_built_in_asset_loaders_8cs_source_l00061}00061\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!File.Exists(pathMeta))}
+\DoxyCodeLine{\Hypertarget{_built_in_asset_loaders_8cs_source_l00062}00062\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_built_in_asset_loaders_8cs_source_l00063}00063\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ texture\ =\ \doxymbox{\hyperlink{class_unity_interface_1_1_resources_manager}{ResourcesManager}}.GetTexture2DFromPathSimple(path);}
+\DoxyCodeLine{\Hypertarget{_built_in_asset_loaders_8cs_source_l00064}00064\ }
+\DoxyCodeLine{\Hypertarget{_built_in_asset_loaders_8cs_source_l00065}00065\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ metadata\ =\ \textcolor{keyword}{new}\ \doxymbox{\hyperlink{class_unity_interface_1_1_asset_loaders_1_1_sprite_metadata}{SpriteMetadata}}();}
+\DoxyCodeLine{\Hypertarget{_built_in_asset_loaders_8cs_source_l00066}00066\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ metadata.rectX\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{_built_in_asset_loaders_8cs_source_l00067}00067\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ metadata.rectY\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{_built_in_asset_loaders_8cs_source_l00068}00068\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ metadata.rectWidth\ =\ texture.width;}
+\DoxyCodeLine{\Hypertarget{_built_in_asset_loaders_8cs_source_l00069}00069\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ metadata.rectHeight\ =\ texture.height;}
+\DoxyCodeLine{\Hypertarget{_built_in_asset_loaders_8cs_source_l00070}00070\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ metadata.pivotX\ =\ 0.5f;}
+\DoxyCodeLine{\Hypertarget{_built_in_asset_loaders_8cs_source_l00071}00071\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ metadata.pivotY\ =\ 0.5f;}
+\DoxyCodeLine{\Hypertarget{_built_in_asset_loaders_8cs_source_l00072}00072\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ metadata.pixelsPerUnit\ =\ 100;}
+\DoxyCodeLine{\Hypertarget{_built_in_asset_loaders_8cs_source_l00073}00073\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_built_in_asset_loaders_8cs_source_l00074}00074\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{_built_in_asset_loaders_8cs_source_l00075}00075\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_built_in_asset_loaders_8cs_source_l00076}00076\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ metadata\ =\ path.GetMetadata(metadataEmpty);}
+\DoxyCodeLine{\Hypertarget{_built_in_asset_loaders_8cs_source_l00077}00077\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ texture\ =\ metadata.LoadAndApply(path);}
+\DoxyCodeLine{\Hypertarget{_built_in_asset_loaders_8cs_source_l00078}00078\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_built_in_asset_loaders_8cs_source_l00079}00079\ }
+\DoxyCodeLine{\Hypertarget{_built_in_asset_loaders_8cs_source_l00080}00080\ \ \ \ \ \ \ \ \ \ \ \ \ s\ =\ Sprite.Create(texture,\ \textcolor{keyword}{new}\ Rect(metadata.rectX,\ metadata.rectY,\ metadata.rectWidth,\ metadata.rectHeight),\ \textcolor{keyword}{new}\ Vector2(metadata.pivotX,\ metadata.pivotY),\ metadata.pixelsPerUnit);}
+\DoxyCodeLine{\Hypertarget{_built_in_asset_loaders_8cs_source_l00081}00081\ \ \ \ \ \ \ \ \ \ \ \ \ s.name\ =\ texture.name;}
+\DoxyCodeLine{\Hypertarget{_built_in_asset_loaders_8cs_source_l00082}00082\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ s;}
+\DoxyCodeLine{\Hypertarget{_built_in_asset_loaders_8cs_source_l00083}00083\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_built_in_asset_loaders_8cs_source_l00084}00084\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_built_in_asset_loaders_8cs_source_l00085}00085\ }
+\DoxyCodeLine{\Hypertarget{_built_in_asset_loaders_8cs_source_l00086}\doxymbox{\hyperlink{class_unity_interface_1_1_asset_loaders_1_1_mesh_loader}{00086}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_unity_interface_1_1_asset_loaders_1_1_mesh_loader}{MeshLoader}}\ :\ IAssetLoader<Mesh>}
+\DoxyCodeLine{\Hypertarget{_built_in_asset_loaders_8cs_source_l00087}00087\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_built_in_asset_loaders_8cs_source_l00088}00088\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ Mesh\ Load(\textcolor{keywordtype}{string}\ path)\ =>\ \doxymbox{\hyperlink{class_unity_interface_1_1_resources_manager}{ResourcesManager}}.GetMeshFromPath(path);}
+\DoxyCodeLine{\Hypertarget{_built_in_asset_loaders_8cs_source_l00089}00089\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_built_in_asset_loaders_8cs_source_l00090}00090\ }
+\DoxyCodeLine{\Hypertarget{_built_in_asset_loaders_8cs_source_l00091}\doxymbox{\hyperlink{class_unity_interface_1_1_asset_loaders_1_1_asset_bundle_loader}{00091}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_unity_interface_1_1_asset_loaders_1_1_asset_bundle_loader}{AssetBundleLoader}}\ :\ IAssetLoader<AssetBundle>}
+\DoxyCodeLine{\Hypertarget{_built_in_asset_loaders_8cs_source_l00092}00092\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_built_in_asset_loaders_8cs_source_l00093}00093\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ AssetBundle\ Load(\textcolor{keywordtype}{string}\ path)\ =>\ \doxymbox{\hyperlink{class_unity_interface_1_1_resources_manager}{ResourcesManager}}.GetAssetBundleFromPath(path);}
+\DoxyCodeLine{\Hypertarget{_built_in_asset_loaders_8cs_source_l00094}00094\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_built_in_asset_loaders_8cs_source_l00095}00095\ }
+\DoxyCodeLine{\Hypertarget{_built_in_asset_loaders_8cs_source_l00096}00096\ \}}
+
+\end{DoxyCode}

@@ -1,0 +1,82 @@
+\doxysection{C.\+Game\+Objects.\+cs}
+\hypertarget{_c_8_game_objects_8cs_source}{}\label{_c_8_game_objects_8cs_source}\index{E:/Baldi s Basics Games/Plugins/Unity Interface/Main/Collections/C.GameObjects.cs@{E:/Baldi s Basics Games/Plugins/Unity Interface/Main/Collections/C.GameObjects.cs}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_c_8_game_objects_8cs_source_l00001}00001\ \textcolor{keyword}{using\ }System;}
+\DoxyCodeLine{\Hypertarget{_c_8_game_objects_8cs_source_l00002}00002\ \textcolor{keyword}{using\ }System.Collections.Generic;}
+\DoxyCodeLine{\Hypertarget{_c_8_game_objects_8cs_source_l00003}00003\ \textcolor{keyword}{using\ }System.IO;}
+\DoxyCodeLine{\Hypertarget{_c_8_game_objects_8cs_source_l00004}00004\ \textcolor{keyword}{using\ }System.Linq;}
+\DoxyCodeLine{\Hypertarget{_c_8_game_objects_8cs_source_l00005}00005\ \textcolor{keyword}{using\ }System.Reflection;}
+\DoxyCodeLine{\Hypertarget{_c_8_game_objects_8cs_source_l00006}00006\ \textcolor{keyword}{using\ }BepInEx;}
+\DoxyCodeLine{\Hypertarget{_c_8_game_objects_8cs_source_l00007}00007\ \textcolor{keyword}{using\ }UnityEngine;}
+\DoxyCodeLine{\Hypertarget{_c_8_game_objects_8cs_source_l00008}00008\ }
+\DoxyCodeLine{\Hypertarget{_c_8_game_objects_8cs_source_l00009}00009\ }
+\DoxyCodeLine{\Hypertarget{_c_8_game_objects_8cs_source_l00010}00010\ \textcolor{keyword}{namespace\ }\doxymbox{\hyperlink{namespace_unity_interface}{UnityInterface}}}
+\DoxyCodeLine{\Hypertarget{_c_8_game_objects_8cs_source_l00011}00011\ \{}
+\DoxyCodeLine{\Hypertarget{_c_8_game_objects_8cs_source_l00012}00012\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{partial\ class\ }\doxymbox{\hyperlink{class_unity_interface_1_1_collections}{Collections}}}
+\DoxyCodeLine{\Hypertarget{_c_8_game_objects_8cs_source_l00013}00013\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_c_8_game_objects_8cs_source_l00014}00014\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ T\ ToGameObject<T>(\textcolor{keyword}{this}\ BaseUnityPlugin\ plugin,\ \textcolor{keywordtype}{bool}\ toPrefab\ =\ \textcolor{keyword}{false},\ \textcolor{keywordtype}{bool}\ applyValues\ =\ \textcolor{keyword}{false})\ =>\ plugin.ToGameObject(toPrefab,\ applyValues,\ typeof(T)).GetComponent<T>();}
+\DoxyCodeLine{\Hypertarget{_c_8_game_objects_8cs_source_l00015}00015\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ GameObject\ ToGameObject(\textcolor{keyword}{this}\ BaseUnityPlugin\ plugin,\ \textcolor{keywordtype}{bool}\ toPrefab,\ \textcolor{keywordtype}{bool}\ applyValues,\ params\ Type[]\ types)}
+\DoxyCodeLine{\Hypertarget{_c_8_game_objects_8cs_source_l00016}00016\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_c_8_game_objects_8cs_source_l00017}00017\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (types.Length\ >\ 0)}
+\DoxyCodeLine{\Hypertarget{_c_8_game_objects_8cs_source_l00018}00018\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_c_8_game_objects_8cs_source_l00019}00019\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ GameObject\ result\ =\ \textcolor{keyword}{new}\ GameObject(types.First().Name);}
+\DoxyCodeLine{\Hypertarget{_c_8_game_objects_8cs_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{_c_8_game_objects_8cs_source_l00021}00021\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (toPrefab)}
+\DoxyCodeLine{\Hypertarget{_c_8_game_objects_8cs_source_l00022}00022\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_c_8_game_objects_8cs_source_l00023}00023\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ResourcesManager.SetAsPrefab(result);}
+\DoxyCodeLine{\Hypertarget{_c_8_game_objects_8cs_source_l00024}00024\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_c_8_game_objects_8cs_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{_c_8_game_objects_8cs_source_l00026}00026\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{foreach}\ (var\ a\ \textcolor{keywordflow}{in}\ types)}
+\DoxyCodeLine{\Hypertarget{_c_8_game_objects_8cs_source_l00027}00027\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_c_8_game_objects_8cs_source_l00028}00028\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ result.AddComponent(a);}
+\DoxyCodeLine{\Hypertarget{_c_8_game_objects_8cs_source_l00029}00029\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_c_8_game_objects_8cs_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{_c_8_game_objects_8cs_source_l00031}00031\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (applyValues)}
+\DoxyCodeLine{\Hypertarget{_c_8_game_objects_8cs_source_l00032}00032\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_c_8_game_objects_8cs_source_l00033}00033\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{foreach}\ (var\ a\ \textcolor{keywordflow}{in}\ types)}
+\DoxyCodeLine{\Hypertarget{_c_8_game_objects_8cs_source_l00034}00034\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_c_8_game_objects_8cs_source_l00035}00035\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ result.GetComponent(a).ApplyValuesComponent(plugin);}
+\DoxyCodeLine{\Hypertarget{_c_8_game_objects_8cs_source_l00036}00036\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_c_8_game_objects_8cs_source_l00037}00037\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_c_8_game_objects_8cs_source_l00038}00038\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{\Hypertarget{_c_8_game_objects_8cs_source_l00039}00039\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_c_8_game_objects_8cs_source_l00040}00040\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{null};}
+\DoxyCodeLine{\Hypertarget{_c_8_game_objects_8cs_source_l00041}00041\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_c_8_game_objects_8cs_source_l00042}00042\ }
+\DoxyCodeLine{\Hypertarget{_c_8_game_objects_8cs_source_l00049}\doxymbox{\hyperlink{class_unity_interface_1_1_collections_ae10c779a17834c0ab592ad1f156aa026}{00049}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ C\ \doxymbox{\hyperlink{class_unity_interface_1_1_collections_a06d53d21ec798e24f5c1168acd5a1eda}{Rescript<O,\ C>}}(O\ source)\ where\ O\ :\ MonoBehaviour\ where\ C\ :\ MonoBehaviour}
+\DoxyCodeLine{\Hypertarget{_c_8_game_objects_8cs_source_l00050}00050\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_c_8_game_objects_8cs_source_l00051}00051\ \ \ \ \ \ \ \ \ \ \ \ \ O\ pref\ =\ GameObject.Instantiate(source,\ \doxymbox{\hyperlink{class_unity_interface_1_1_resources_manager}{ResourcesManager}}.\doxymbox{\hyperlink{class_unity_interface_1_1_resources_manager_af3e1c9792e99bde78271433650261b6d}{prefabParent}});}
+\DoxyCodeLine{\Hypertarget{_c_8_game_objects_8cs_source_l00052}00052\ }
+\DoxyCodeLine{\Hypertarget{_c_8_game_objects_8cs_source_l00053}00053\ \ \ \ \ \ \ \ \ \ \ \ \ GameObject\ a\ =\ pref.gameObject;}
+\DoxyCodeLine{\Hypertarget{_c_8_game_objects_8cs_source_l00054}00054\ \ \ \ \ \ \ \ \ \ \ \ \ a.name\ =\ typeof(C).Name;}
+\DoxyCodeLine{\Hypertarget{_c_8_game_objects_8cs_source_l00055}00055\ }
+\DoxyCodeLine{\Hypertarget{_c_8_game_objects_8cs_source_l00056}00056\ \ \ \ \ \ \ \ \ \ \ \ \ var\ data\ =\ pref.GetReferencesFromGameObject();}
+\DoxyCodeLine{\Hypertarget{_c_8_game_objects_8cs_source_l00057}00057\ \ \ \ \ \ \ \ \ \ \ \ \ var\ b\ =\ pref.gameObject.AddComponent<C>();}
+\DoxyCodeLine{\Hypertarget{_c_8_game_objects_8cs_source_l00058}00058\ \ \ \ \ \ \ \ \ \ \ \ \ pref.Merge(b);}
+\DoxyCodeLine{\Hypertarget{_c_8_game_objects_8cs_source_l00059}00059\ \ \ \ \ \ \ \ \ \ \ \ \ b.SetReferencesFromGameObject(data);}
+\DoxyCodeLine{\Hypertarget{_c_8_game_objects_8cs_source_l00060}00060\ }
+\DoxyCodeLine{\Hypertarget{_c_8_game_objects_8cs_source_l00061}00061\ \ \ \ \ \ \ \ \ \ \ \ \ GameObject.Destroy(pref);}
+\DoxyCodeLine{\Hypertarget{_c_8_game_objects_8cs_source_l00062}00062\ }
+\DoxyCodeLine{\Hypertarget{_c_8_game_objects_8cs_source_l00063}00063\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ a.GetComponent<C>();}
+\DoxyCodeLine{\Hypertarget{_c_8_game_objects_8cs_source_l00064}00064\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_c_8_game_objects_8cs_source_l00071}\doxymbox{\hyperlink{class_unity_interface_1_1_collections_a06d53d21ec798e24f5c1168acd5a1eda}{00071}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ C\ \doxymbox{\hyperlink{class_unity_interface_1_1_collections_a06d53d21ec798e24f5c1168acd5a1eda}{Rescript<O,\ C>}}()\ where\ O\ :\ MonoBehaviour\ where\ C\ :\ MonoBehaviour\ =>\ Rescript<O,\ C>(\doxymbox{\hyperlink{class_unity_interface_1_1_resources_manager}{ResourcesManager}}.Get<O>().First());}
+\DoxyCodeLine{\Hypertarget{_c_8_game_objects_8cs_source_l00072}00072\ }
+\DoxyCodeLine{\Hypertarget{_c_8_game_objects_8cs_source_l00073}00073\ \ \ \ \ \ \ \ \ public\ static\ \textcolor{keywordtype}{void}\ ApplyValuesComponent(this\ Component\ component,\ BaseUnityPlugin\ plugin)}
+\DoxyCodeLine{\Hypertarget{_c_8_game_objects_8cs_source_l00074}00074\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_c_8_game_objects_8cs_source_l00075}00075\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ name\ =\ \$\textcolor{stringliteral}{"{}\{component.name\}\ \{component.GetType().Name\}"{}};}
+\DoxyCodeLine{\Hypertarget{_c_8_game_objects_8cs_source_l00076}00076\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ path\ =\ Path.Combine(\doxymbox{\hyperlink{class_unity_interface_1_1_plugin_manager}{PluginManager}}.\doxymbox{\hyperlink{class_unity_interface_1_1_plugin_manager_aba6b6e6d3593c175bcac3e51e3364203}{GetProjectFolder}}(plugin),\ \$\textcolor{stringliteral}{"{}\{name\}.json"{}});}
+\DoxyCodeLine{\Hypertarget{_c_8_game_objects_8cs_source_l00077}00077\ \ \ \ \ \ \ \ \ \ \ \ \ if\ (!File.Exists(path))}
+\DoxyCodeLine{\Hypertarget{_c_8_game_objects_8cs_source_l00078}00078\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_c_8_game_objects_8cs_source_l00079}00079\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ File.WriteAllText(path,\ ResourcesManager.ToJson(component));}
+\DoxyCodeLine{\Hypertarget{_c_8_game_objects_8cs_source_l00080}00080\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_c_8_game_objects_8cs_source_l00081}00081\ \ \ \ \ \ \ \ \ \ \ \ \ JsonUtility.FromJsonOverwrite(\doxymbox{\hyperlink{class_unity_interface_1_1_resources_manager}{ResourcesManager}}.PrepareJsonForOverwrite(File.ReadAllText(path),\ component.GetType()),\ component);}
+\DoxyCodeLine{\Hypertarget{_c_8_game_objects_8cs_source_l00082}00082\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_c_8_game_objects_8cs_source_l00083}00083\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ ApplyValues<T>(\textcolor{keyword}{this}\ T\ component,\ BaseUnityPlugin\ plugin)\ where\ T\ :\ Component\ =>\ component.ApplyValuesComponent(plugin);}
+\DoxyCodeLine{\Hypertarget{_c_8_game_objects_8cs_source_l00084}00084\ }
+\DoxyCodeLine{\Hypertarget{_c_8_game_objects_8cs_source_l00085}00085\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ List<(Component,\ List<string>)>\ GetReferencesFromGameObject(\textcolor{keyword}{this}\ Component\ referenced,\ BindingFlags\ flags\ =\ bindingFlagsForMerge)\ =>\ referenced.GetComponentsInChildren<Component>().Where(a\ =>\ a\ !=\ \textcolor{keyword}{null}\ \&\&\ a\ !=\ referenced).Select(a\ =>\ (a,\ a.GetType().GetFieldsWithParents(flags).Where(b\ =>\ Equals(a.GetValue(b),\ referenced)).ToList())).ToList();}
+\DoxyCodeLine{\Hypertarget{_c_8_game_objects_8cs_source_l00086}00086\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ SetReferencesFromGameObject(\textcolor{keyword}{this}\ Component\ injection,\ List<(Component,\ List<string>)>\ data)\ =>\ data.ForEach(a\ =>\ a.Item2.ForEach(b\ =>\ a.Item1?.SetValue(b,\ injection)));}
+\DoxyCodeLine{\Hypertarget{_c_8_game_objects_8cs_source_l00087}00087\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_c_8_game_objects_8cs_source_l00088}00088\ \}}
+
+\end{DoxyCode}

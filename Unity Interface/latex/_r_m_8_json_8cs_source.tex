@@ -1,0 +1,92 @@
+\doxysection{RM.\+Json.\+cs}
+\hypertarget{_r_m_8_json_8cs_source}{}\label{_r_m_8_json_8cs_source}\index{E:/Baldi s Basics Games/Plugins/Unity Interface/Main/ResourcesManager/RM.Json.cs@{E:/Baldi s Basics Games/Plugins/Unity Interface/Main/ResourcesManager/RM.Json.cs}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_r_m_8_json_8cs_source_l00001}00001\ \textcolor{keyword}{using\ }System;}
+\DoxyCodeLine{\Hypertarget{_r_m_8_json_8cs_source_l00002}00002\ \textcolor{keyword}{using\ }Newtonsoft.Json;}
+\DoxyCodeLine{\Hypertarget{_r_m_8_json_8cs_source_l00003}00003\ \textcolor{keyword}{using\ }Newtonsoft.Json.Linq;}
+\DoxyCodeLine{\Hypertarget{_r_m_8_json_8cs_source_l00004}00004\ \textcolor{keyword}{using\ }UnityEngine;}
+\DoxyCodeLine{\Hypertarget{_r_m_8_json_8cs_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{_r_m_8_json_8cs_source_l00006}00006\ \textcolor{keyword}{namespace\ }\doxymbox{\hyperlink{namespace_unity_interface}{UnityInterface}}}
+\DoxyCodeLine{\Hypertarget{_r_m_8_json_8cs_source_l00007}00007\ \{}
+\DoxyCodeLine{\Hypertarget{_r_m_8_json_8cs_source_l00008}00008\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ \textcolor{keyword}{partial\ class\ }\doxymbox{\hyperlink{class_unity_interface_1_1_resources_manager}{ResourcesManager}}}
+\DoxyCodeLine{\Hypertarget{_r_m_8_json_8cs_source_l00009}00009\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_r_m_8_json_8cs_source_l00010}00010\ \ \ \ \ \ \ \ \ \textcolor{keyword}{internal}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ serializeMod;}
+\DoxyCodeLine{\Hypertarget{_r_m_8_json_8cs_source_l00011}00011\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{string}\ ToJson(\textcolor{keywordtype}{object}\ obj)\ =>\ ReplaceInstanceIDs(obj.GetType(),\ JsonUtility.ToJson(obj,\ \textcolor{keyword}{true}),\ \textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{_r_m_8_json_8cs_source_l00012}00012\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{string}\ PrepareJsonForOverwrite(\textcolor{keywordtype}{string}\ json,\ Type\ type)\ =>\ ReplaceInstanceIDs(type,\ json,\ \textcolor{keyword}{false});}
+\DoxyCodeLine{\Hypertarget{_r_m_8_json_8cs_source_l00013}00013\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{object}\ FromJson(\textcolor{keywordtype}{string}\ json,\ Type\ type)\ =>\ JsonUtility.FromJson(ReplaceInstanceIDs(type,\ json,\ \textcolor{keyword}{false}),\ type);}
+\DoxyCodeLine{\Hypertarget{_r_m_8_json_8cs_source_l00014}00014\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ T\ FromJson<T>(\textcolor{keywordtype}{string}\ json)\ =>\ JsonUtility.FromJson<T>(ReplaceInstanceIDs(typeof(T),\ json,\ \textcolor{keyword}{false}));}
+\DoxyCodeLine{\Hypertarget{_r_m_8_json_8cs_source_l00015}00015\ }
+\DoxyCodeLine{\Hypertarget{_r_m_8_json_8cs_source_l00016}00016\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{string}\ ReplaceInstanceIDs(Type\ type,\ \textcolor{keywordtype}{string}\ json,\ \textcolor{keywordtype}{bool}\ serialize)}
+\DoxyCodeLine{\Hypertarget{_r_m_8_json_8cs_source_l00017}00017\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_r_m_8_json_8cs_source_l00018}00018\ \ \ \ \ \ \ \ \ \ \ \ \ serializeMod\ =\ serialize;}
+\DoxyCodeLine{\Hypertarget{_r_m_8_json_8cs_source_l00019}00019\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ ReplaceToken(type,\ JToken.Parse(json)).ToString(Formatting.Indented);}
+\DoxyCodeLine{\Hypertarget{_r_m_8_json_8cs_source_l00020}00020\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_r_m_8_json_8cs_source_l00021}00021\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keyword}{static}\ JToken\ ReplaceToken(Type\ type,\ JToken\ token)}
+\DoxyCodeLine{\Hypertarget{_r_m_8_json_8cs_source_l00022}00022\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_r_m_8_json_8cs_source_l00023}00023\ \ \ \ \ \ \ \ \ \ \ \ \ Type\ fieldType;}
+\DoxyCodeLine{\Hypertarget{_r_m_8_json_8cs_source_l00024}00024\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ flag;}
+\DoxyCodeLine{\Hypertarget{_r_m_8_json_8cs_source_l00025}00025\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ id;}
+\DoxyCodeLine{\Hypertarget{_r_m_8_json_8cs_source_l00026}00026\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ propVal;}
+\DoxyCodeLine{\Hypertarget{_r_m_8_json_8cs_source_l00027}00027\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (token\ is\ JObject\ obj)}
+\DoxyCodeLine{\Hypertarget{_r_m_8_json_8cs_source_l00028}00028\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_r_m_8_json_8cs_source_l00029}00029\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{foreach}\ (var\ prop\ \textcolor{keywordflow}{in}\ obj.Properties())}
+\DoxyCodeLine{\Hypertarget{_r_m_8_json_8cs_source_l00030}00030\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_r_m_8_json_8cs_source_l00031}00031\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ propVal\ =\ prop.Value.ToString();}
+\DoxyCodeLine{\Hypertarget{_r_m_8_json_8cs_source_l00032}00032\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (prop.Name\ ==\ \textcolor{stringliteral}{"{}m\_FileID"{}})}
+\DoxyCodeLine{\Hypertarget{_r_m_8_json_8cs_source_l00033}00033\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_r_m_8_json_8cs_source_l00034}00034\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (serializeMod)}
+\DoxyCodeLine{\Hypertarget{_r_m_8_json_8cs_source_l00035}00035\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_r_m_8_json_8cs_source_l00036}00036\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{id}\ =\ \textcolor{keywordtype}{int}.Parse(propVal);}
+\DoxyCodeLine{\Hypertarget{_r_m_8_json_8cs_source_l00037}00037\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ prop.Value\ =\ (\textcolor{keywordtype}{id}\ ==\ 0)\ ?\ \textcolor{stringliteral}{"{}null"{}}\ :\ Resources.InstanceIDToObject(id).name;}
+\DoxyCodeLine{\Hypertarget{_r_m_8_json_8cs_source_l00038}00038\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_r_m_8_json_8cs_source_l00039}00039\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{_r_m_8_json_8cs_source_l00040}00040\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_r_m_8_json_8cs_source_l00041}00041\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ prop.Value\ =\ (propVal\ ==\ \textcolor{stringliteral}{"{}null"{}})\ ?\ 0\ :\ \doxymbox{\hyperlink{class_unity_interface_1_1_resources_manager_a41d52e22a5e2e57c06e53d37d0c532a6}{Get}}(type,\ propVal).GetInstanceID();}
+\DoxyCodeLine{\Hypertarget{_r_m_8_json_8cs_source_l00042}00042\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_r_m_8_json_8cs_source_l00043}00043\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_r_m_8_json_8cs_source_l00044}00044\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fieldType\ =\ type.GetField(prop.Name,\ Collections.bindingFlagsDefault)?.FieldType;}
+\DoxyCodeLine{\Hypertarget{_r_m_8_json_8cs_source_l00045}00045\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (fieldType\ !=\ \textcolor{keyword}{null})}
+\DoxyCodeLine{\Hypertarget{_r_m_8_json_8cs_source_l00046}00046\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_r_m_8_json_8cs_source_l00047}00047\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (fieldType.IsEnum)}
+\DoxyCodeLine{\Hypertarget{_r_m_8_json_8cs_source_l00048}00048\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_r_m_8_json_8cs_source_l00049}00049\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (serializeMod)}
+\DoxyCodeLine{\Hypertarget{_r_m_8_json_8cs_source_l00050}00050\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_r_m_8_json_8cs_source_l00051}00051\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{id}\ =\ \textcolor{keywordtype}{int}.Parse(propVal);}
+\DoxyCodeLine{\Hypertarget{_r_m_8_json_8cs_source_l00052}00052\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ prop.Value\ =\ Enum.ToObject(fieldType,\ \textcolor{keywordtype}{id}).ToString();}
+\DoxyCodeLine{\Hypertarget{_r_m_8_json_8cs_source_l00053}00053\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_r_m_8_json_8cs_source_l00054}00054\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{_r_m_8_json_8cs_source_l00055}00055\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_r_m_8_json_8cs_source_l00056}00056\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ prop.Value\ =\ (int)propVal.ToEnum(fieldType);}
+\DoxyCodeLine{\Hypertarget{_r_m_8_json_8cs_source_l00057}00057\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_r_m_8_json_8cs_source_l00058}00058\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_r_m_8_json_8cs_source_l00059}00059\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{_r_m_8_json_8cs_source_l00060}00060\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_r_m_8_json_8cs_source_l00061}00061\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ReplaceToken(fieldType,\ prop.Value);}
+\DoxyCodeLine{\Hypertarget{_r_m_8_json_8cs_source_l00062}00062\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_r_m_8_json_8cs_source_l00063}00063\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_r_m_8_json_8cs_source_l00064}00064\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_r_m_8_json_8cs_source_l00065}00065\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_r_m_8_json_8cs_source_l00066}00066\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (token\ is\ JArray\ arr)}
+\DoxyCodeLine{\Hypertarget{_r_m_8_json_8cs_source_l00067}00067\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_r_m_8_json_8cs_source_l00068}00068\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fieldType\ =\ type.GetElementType();}
+\DoxyCodeLine{\Hypertarget{_r_m_8_json_8cs_source_l00069}00069\ }
+\DoxyCodeLine{\Hypertarget{_r_m_8_json_8cs_source_l00070}00070\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (fieldType\ ==\ \textcolor{keyword}{null}\ \&\&\ type.IsGenericType)}
+\DoxyCodeLine{\Hypertarget{_r_m_8_json_8cs_source_l00071}00071\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_r_m_8_json_8cs_source_l00072}00072\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fieldType\ =\ type.GetGenericArguments()[0];}
+\DoxyCodeLine{\Hypertarget{_r_m_8_json_8cs_source_l00073}00073\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_r_m_8_json_8cs_source_l00074}00074\ }
+\DoxyCodeLine{\Hypertarget{_r_m_8_json_8cs_source_l00075}00075\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (fieldType\ !=\ \textcolor{keyword}{null})}
+\DoxyCodeLine{\Hypertarget{_r_m_8_json_8cs_source_l00076}00076\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_r_m_8_json_8cs_source_l00077}00077\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{foreach}\ (var\ item\ \textcolor{keywordflow}{in}\ arr)}
+\DoxyCodeLine{\Hypertarget{_r_m_8_json_8cs_source_l00078}00078\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_r_m_8_json_8cs_source_l00079}00079\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ReplaceToken(fieldType,\ item);}
+\DoxyCodeLine{\Hypertarget{_r_m_8_json_8cs_source_l00080}00080\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_r_m_8_json_8cs_source_l00081}00081\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_r_m_8_json_8cs_source_l00082}00082\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_r_m_8_json_8cs_source_l00083}00083\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ token;}
+\DoxyCodeLine{\Hypertarget{_r_m_8_json_8cs_source_l00084}00084\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_r_m_8_json_8cs_source_l00085}00085\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_r_m_8_json_8cs_source_l00086}00086\ \}}
+
+\end{DoxyCode}

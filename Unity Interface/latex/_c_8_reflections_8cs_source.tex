@@ -1,0 +1,64 @@
+\doxysection{C.\+Reflections.\+cs}
+\hypertarget{_c_8_reflections_8cs_source}{}\label{_c_8_reflections_8cs_source}\index{E:/Baldi s Basics Games/Plugins/Unity Interface/Main/Collections/C.Reflections.cs@{E:/Baldi s Basics Games/Plugins/Unity Interface/Main/Collections/C.Reflections.cs}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_c_8_reflections_8cs_source_l00001}00001\ \textcolor{keyword}{using\ }System;}
+\DoxyCodeLine{\Hypertarget{_c_8_reflections_8cs_source_l00002}00002\ \textcolor{keyword}{using\ }System.Collections.Generic;}
+\DoxyCodeLine{\Hypertarget{_c_8_reflections_8cs_source_l00003}00003\ \textcolor{keyword}{using\ }System.Linq;}
+\DoxyCodeLine{\Hypertarget{_c_8_reflections_8cs_source_l00004}00004\ \textcolor{keyword}{using\ }System.Reflection;}
+\DoxyCodeLine{\Hypertarget{_c_8_reflections_8cs_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{_c_8_reflections_8cs_source_l00006}00006\ \textcolor{keyword}{namespace\ }\doxymbox{\hyperlink{namespace_unity_interface}{UnityInterface}}}
+\DoxyCodeLine{\Hypertarget{_c_8_reflections_8cs_source_l00007}00007\ \{}
+\DoxyCodeLine{\Hypertarget{_c_8_reflections_8cs_source_l00008}00008\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ \textcolor{keyword}{partial\ class\ }\doxymbox{\hyperlink{class_unity_interface_1_1_collections}{Collections}}}
+\DoxyCodeLine{\Hypertarget{_c_8_reflections_8cs_source_l00009}00009\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_c_8_reflections_8cs_source_l00010}00010\ \ \ \ \ \ \ \ \ \textcolor{keyword}{internal}\ \textcolor{keyword}{const}\ BindingFlags\ bindingFlagsForMerge\ =\ BindingFlags.Instance\ |\ BindingFlags.Public\ |\ BindingFlags.NonPublic;}
+\DoxyCodeLine{\Hypertarget{_c_8_reflections_8cs_source_l00011}00011\ \ \ \ \ \ \ \ \ \textcolor{keyword}{internal}\ \textcolor{keyword}{const}\ BindingFlags\ bindingFlagsDefault\ =\ BindingFlags.Instance\ |\ BindingFlags.Public\ |\ BindingFlags.NonPublic\ |\ BindingFlags.Static;}
+\DoxyCodeLine{\Hypertarget{_c_8_reflections_8cs_source_l00012}00012\ \ \ \ \ \ \ \ \ \textcolor{keyword}{internal}\ \textcolor{keyword}{const}\ BindingFlags\ bindingFlagsForParents\ =\ BindingFlags.Instance\ |\ BindingFlags.Public\ |\ BindingFlags.NonPublic\ |\ BindingFlags.Static\ |\ BindingFlags.DeclaredOnly;}
+\DoxyCodeLine{\Hypertarget{_c_8_reflections_8cs_source_l00013}00013\ \ \ \ \ \ \ \ \ \textcolor{keyword}{internal}\ \textcolor{keyword}{static}\ Dictionary<(Type,\ BindingFlags),\ List<FieldInfo>>\ fieldsCache\ =\ \textcolor{keyword}{new}\ Dictionary<(Type,\ BindingFlags),\ List<FieldInfo>>();}
+\DoxyCodeLine{\Hypertarget{_c_8_reflections_8cs_source_l00014}00014\ \ \ \ \ \ \ \ \ \textcolor{keyword}{internal}\ \textcolor{keyword}{static}\ Dictionary<(Type,\ BindingFlags),\ List<PropertyInfo>>\ propertiesCache\ =\ \textcolor{keyword}{new}\ Dictionary<(Type,\ BindingFlags),\ List<PropertyInfo>>();}
+\DoxyCodeLine{\Hypertarget{_c_8_reflections_8cs_source_l00015}00015\ }
+\DoxyCodeLine{\Hypertarget{_c_8_reflections_8cs_source_l00016}00016\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ List<FieldInfo>\ GetFieldInfosWithParents(\textcolor{keyword}{this}\ Type\ type,\ BindingFlags\ flags\ =\ bindingFlagsForParents)}
+\DoxyCodeLine{\Hypertarget{_c_8_reflections_8cs_source_l00017}00017\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_c_8_reflections_8cs_source_l00018}00018\ \ \ \ \ \ \ \ \ \ \ \ \ List<FieldInfo>\ result\ =\ \textcolor{keyword}{new}\ List<FieldInfo>();}
+\DoxyCodeLine{\Hypertarget{_c_8_reflections_8cs_source_l00019}00019\ \ \ \ \ \ \ \ \ \ \ \ \ (Type,\ BindingFlags)\ key\ =\ (type,\ flags);}
+\DoxyCodeLine{\Hypertarget{_c_8_reflections_8cs_source_l00020}00020\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!fieldsCache.ContainsKey(key))}
+\DoxyCodeLine{\Hypertarget{_c_8_reflections_8cs_source_l00021}00021\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_c_8_reflections_8cs_source_l00022}00022\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (type\ !=\ \textcolor{keyword}{null}\ \&\&\ type\ !=\ typeof(UnityEngine.Object)\ \&\&\ type\ !=\ typeof(\textcolor{keywordtype}{object}))}
+\DoxyCodeLine{\Hypertarget{_c_8_reflections_8cs_source_l00023}00023\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_c_8_reflections_8cs_source_l00024}00024\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ result.AddRange(type.GetFields(flags));}
+\DoxyCodeLine{\Hypertarget{_c_8_reflections_8cs_source_l00025}00025\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ type\ =\ type.BaseType;}
+\DoxyCodeLine{\Hypertarget{_c_8_reflections_8cs_source_l00026}00026\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_c_8_reflections_8cs_source_l00027}00027\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fieldsCache.Add(key,\ result.Distinct().ToList());}
+\DoxyCodeLine{\Hypertarget{_c_8_reflections_8cs_source_l00028}00028\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_c_8_reflections_8cs_source_l00029}00029\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ fieldsCache[key];}
+\DoxyCodeLine{\Hypertarget{_c_8_reflections_8cs_source_l00030}00030\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_c_8_reflections_8cs_source_l00031}00031\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ List<string>\ GetFieldsWithParents(\textcolor{keyword}{this}\ Type\ type,\ BindingFlags\ flags\ =\ bindingFlagsForParents)\ =>\ type.GetFieldInfosWithParents(flags).Select(a\ =>\ a.Name).ToList();}
+\DoxyCodeLine{\Hypertarget{_c_8_reflections_8cs_source_l00032}00032\ }
+\DoxyCodeLine{\Hypertarget{_c_8_reflections_8cs_source_l00033}00033\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ List<PropertyInfo>\ GetPropertiesInfoWithParents(\textcolor{keyword}{this}\ Type\ type,\ BindingFlags\ flags\ =\ bindingFlagsForParents)}
+\DoxyCodeLine{\Hypertarget{_c_8_reflections_8cs_source_l00034}00034\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_c_8_reflections_8cs_source_l00035}00035\ \ \ \ \ \ \ \ \ \ \ \ \ List<PropertyInfo>\ result\ =\ \textcolor{keyword}{new}\ List<PropertyInfo>();}
+\DoxyCodeLine{\Hypertarget{_c_8_reflections_8cs_source_l00036}00036\ \ \ \ \ \ \ \ \ \ \ \ \ (Type,\ BindingFlags)\ key\ =\ (type,\ flags);}
+\DoxyCodeLine{\Hypertarget{_c_8_reflections_8cs_source_l00037}00037\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!propertiesCache.ContainsKey(key))}
+\DoxyCodeLine{\Hypertarget{_c_8_reflections_8cs_source_l00038}00038\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_c_8_reflections_8cs_source_l00039}00039\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (type\ !=\ \textcolor{keyword}{null}\ \&\&\ type\ !=\ typeof(UnityEngine.Object)\ \&\&\ type\ !=\ typeof(\textcolor{keywordtype}{object}))}
+\DoxyCodeLine{\Hypertarget{_c_8_reflections_8cs_source_l00040}00040\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_c_8_reflections_8cs_source_l00041}00041\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ result.AddRange(type.GetProperties(flags));}
+\DoxyCodeLine{\Hypertarget{_c_8_reflections_8cs_source_l00042}00042\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ type\ =\ type.BaseType;}
+\DoxyCodeLine{\Hypertarget{_c_8_reflections_8cs_source_l00043}00043\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_c_8_reflections_8cs_source_l00044}00044\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ propertiesCache.Add(key,\ result.Distinct().ToList());}
+\DoxyCodeLine{\Hypertarget{_c_8_reflections_8cs_source_l00045}00045\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_c_8_reflections_8cs_source_l00046}00046\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ propertiesCache[key];}
+\DoxyCodeLine{\Hypertarget{_c_8_reflections_8cs_source_l00047}00047\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_c_8_reflections_8cs_source_l00048}00048\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ List<string>\ GetPropertiesWithParents(\textcolor{keyword}{this}\ Type\ type,\ BindingFlags\ flags\ =\ bindingFlagsForParents)\ =>\ type.GetPropertiesInfoWithParents(flags).Select(a\ =>\ a.Name).ToList();}
+\DoxyCodeLine{\Hypertarget{_c_8_reflections_8cs_source_l00049}00049\ }
+\DoxyCodeLine{\Hypertarget{_c_8_reflections_8cs_source_l00050}00050\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ ContainsInterface(\textcolor{keyword}{this}\ Type\ interfaceType,\ Type\ typeBase)\ =>\ typeBase.GetInterfaces().Any(a\ =>\ a.IsGenericType\ \&\&\ a.GetGenericTypeDefinition()\ ==\ interfaceType);}
+\DoxyCodeLine{\Hypertarget{_c_8_reflections_8cs_source_l00051}00051\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ Type\ GetConstGenericedType(\textcolor{keyword}{this}\ Type\ typeBase,\ Type\ interfaceType)\ =>\ typeBase.GetInterfaces().Where(a\ =>\ a.IsGenericType\ \&\&\ a.GetGenericTypeDefinition()\ ==\ interfaceType).FirstOrDefault()?.GetGenericArguments()?.FirstOrDefault();}
+\DoxyCodeLine{\Hypertarget{_c_8_reflections_8cs_source_l00052}00052\ }
+\DoxyCodeLine{\Hypertarget{_c_8_reflections_8cs_source_l00053}00053\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ ContainsAttribute<T>(\textcolor{keyword}{this}\ Type\ typeBase)\ where\ T\ :\ Attribute\ =>\ typeBase.IsDefined(typeof(T),\ \textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{_c_8_reflections_8cs_source_l00054}00054\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ T\ GetAttribute<T>(\textcolor{keyword}{this}\ Type\ typeBase)\ where\ T\ :\ Attribute\ =>\ typeBase.GetCustomAttribute<T>(\textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{_c_8_reflections_8cs_source_l00055}00055\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{object}[]\ GetAttributes<T>(\textcolor{keyword}{this}\ Type\ typeBase)\ where\ T\ :\ Attribute\ =>\ typeBase.GetCustomAttributes(typeof(T),\ \textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{_c_8_reflections_8cs_source_l00056}00056\ }
+\DoxyCodeLine{\Hypertarget{_c_8_reflections_8cs_source_l00057}00057\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_c_8_reflections_8cs_source_l00058}00058\ \}}
+
+\end{DoxyCode}

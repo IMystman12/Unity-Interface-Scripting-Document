@@ -1,0 +1,37 @@
+\doxysection{C.\+Codes.\+cs}
+\hypertarget{_c_8_codes_8cs_source}{}\label{_c_8_codes_8cs_source}\index{E:/Baldi s Basics Games/Plugins/Unity Interface/Main/Collections/C.Codes.cs@{E:/Baldi s Basics Games/Plugins/Unity Interface/Main/Collections/C.Codes.cs}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_c_8_codes_8cs_source_l00001}00001\ \textcolor{keyword}{using\ }System;}
+\DoxyCodeLine{\Hypertarget{_c_8_codes_8cs_source_l00002}00002\ \textcolor{keyword}{using\ }System.Collections.Generic;}
+\DoxyCodeLine{\Hypertarget{_c_8_codes_8cs_source_l00003}00003\ \textcolor{keyword}{using\ }System.Linq;}
+\DoxyCodeLine{\Hypertarget{_c_8_codes_8cs_source_l00004}00004\ \textcolor{keyword}{using\ }System.Reflection;}
+\DoxyCodeLine{\Hypertarget{_c_8_codes_8cs_source_l00005}00005\ \textcolor{keyword}{using\ }HarmonyLib;}
+\DoxyCodeLine{\Hypertarget{_c_8_codes_8cs_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{_c_8_codes_8cs_source_l00007}00007\ \textcolor{keyword}{namespace\ }\doxymbox{\hyperlink{namespace_unity_interface}{UnityInterface}}}
+\DoxyCodeLine{\Hypertarget{_c_8_codes_8cs_source_l00008}00008\ \{}
+\DoxyCodeLine{\Hypertarget{_c_8_codes_8cs_source_l00009}00009\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ \textcolor{keyword}{partial\ class\ }\doxymbox{\hyperlink{class_unity_interface_1_1_collections}{Collections}}}
+\DoxyCodeLine{\Hypertarget{_c_8_codes_8cs_source_l00010}00010\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_c_8_codes_8cs_source_l00014}\doxymbox{\hyperlink{class_unity_interface_1_1_collections_a7324c5bfb075da648bad83a275260255}{00014}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ \doxymbox{\hyperlink{class_unity_interface_1_1_collections_a7324c5bfb075da648bad83a275260255}{Harmony}}\ \doxymbox{\hyperlink{class_unity_interface_1_1_collections_a7324c5bfb075da648bad83a275260255}{Harmony}}\ =>\ UnityInterfacePlugin.harmony;}
+\DoxyCodeLine{\Hypertarget{_c_8_codes_8cs_source_l00015}00015\ }
+\DoxyCodeLine{\Hypertarget{_c_8_codes_8cs_source_l00016}00016\ \ \ \ \ \ \ \ \ \textcolor{keyword}{internal}\ \textcolor{keyword}{static}\ Dictionary<(Type,\ BindingFlags),\ List<MethodInfo>>\ methodsCache\ =\ \textcolor{keyword}{new}\ Dictionary<(Type,\ BindingFlags),\ List<MethodInfo>>();}
+\DoxyCodeLine{\Hypertarget{_c_8_codes_8cs_source_l00017}00017\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ List<MethodInfo>\ GetMethodInfosWithParents(\textcolor{keyword}{this}\ Type\ type,\ BindingFlags\ flags\ =\ bindingFlagsForParents)}
+\DoxyCodeLine{\Hypertarget{_c_8_codes_8cs_source_l00018}00018\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_c_8_codes_8cs_source_l00019}00019\ \ \ \ \ \ \ \ \ \ \ \ \ List<MethodInfo>\ result\ =\ \textcolor{keyword}{new}\ List<MethodInfo>();}
+\DoxyCodeLine{\Hypertarget{_c_8_codes_8cs_source_l00020}00020\ \ \ \ \ \ \ \ \ \ \ \ \ (Type,\ BindingFlags)\ key\ =\ (type,\ flags);}
+\DoxyCodeLine{\Hypertarget{_c_8_codes_8cs_source_l00021}00021\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!methodsCache.ContainsKey(key))}
+\DoxyCodeLine{\Hypertarget{_c_8_codes_8cs_source_l00022}00022\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_c_8_codes_8cs_source_l00023}00023\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (type\ !=\ \textcolor{keyword}{null}\ \&\&\ type\ !=\ typeof(UnityEngine.Object)\ \&\&\ type\ !=\ typeof(\textcolor{keywordtype}{object}))}
+\DoxyCodeLine{\Hypertarget{_c_8_codes_8cs_source_l00024}00024\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_c_8_codes_8cs_source_l00025}00025\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ result.AddRange(type.GetMethods(flags));}
+\DoxyCodeLine{\Hypertarget{_c_8_codes_8cs_source_l00026}00026\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ type\ =\ type.BaseType;}
+\DoxyCodeLine{\Hypertarget{_c_8_codes_8cs_source_l00027}00027\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_c_8_codes_8cs_source_l00028}00028\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ methodsCache.Add(key,\ result.Distinct().ToList());}
+\DoxyCodeLine{\Hypertarget{_c_8_codes_8cs_source_l00029}00029\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_c_8_codes_8cs_source_l00030}00030\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ methodsCache[key];}
+\DoxyCodeLine{\Hypertarget{_c_8_codes_8cs_source_l00031}00031\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_c_8_codes_8cs_source_l00032}00032\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ List<string>\ GetMethodsWithParents(\textcolor{keyword}{this}\ Type\ type,\ BindingFlags\ flags\ =\ bindingFlagsForParents)\ =>\ type.GetMethodInfosWithParents(flags).Select(a\ =>\ a.Name).ToList();}
+\DoxyCodeLine{\Hypertarget{_c_8_codes_8cs_source_l00033}00033\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_c_8_codes_8cs_source_l00034}00034\ \}}
+
+\end{DoxyCode}

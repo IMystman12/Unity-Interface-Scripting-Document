@@ -1,0 +1,71 @@
+\doxysection{RM.\+Enum.\+cs}
+\hypertarget{_r_m_8_enum_8cs_source}{}\label{_r_m_8_enum_8cs_source}\index{E:/Baldi s Basics Games/Plugins/Unity Interface/Main/ResourcesManager/RM.Enum.cs@{E:/Baldi s Basics Games/Plugins/Unity Interface/Main/ResourcesManager/RM.Enum.cs}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_r_m_8_enum_8cs_source_l00001}00001\ \textcolor{keyword}{using\ }System;}
+\DoxyCodeLine{\Hypertarget{_r_m_8_enum_8cs_source_l00002}00002\ \textcolor{keyword}{using\ }System.Collections.Generic;}
+\DoxyCodeLine{\Hypertarget{_r_m_8_enum_8cs_source_l00003}00003\ \textcolor{keyword}{using\ }BepInEx.Logging;}
+\DoxyCodeLine{\Hypertarget{_r_m_8_enum_8cs_source_l00004}00004\ \textcolor{keyword}{using\ }HarmonyLib;}
+\DoxyCodeLine{\Hypertarget{_r_m_8_enum_8cs_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{_r_m_8_enum_8cs_source_l00006}00006\ \textcolor{keyword}{namespace\ }\doxymbox{\hyperlink{namespace_unity_interface}{UnityInterface}}}
+\DoxyCodeLine{\Hypertarget{_r_m_8_enum_8cs_source_l00007}00007\ \{}
+\DoxyCodeLine{\Hypertarget{_r_m_8_enum_8cs_source_l00008}00008\ \ \ \ \ [HarmonyPatch]}
+\DoxyCodeLine{\Hypertarget{_r_m_8_enum_8cs_source_l00009}00009\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ \textcolor{keyword}{partial\ class\ }\doxymbox{\hyperlink{class_unity_interface_1_1_resources_manager}{ResourcesManager}}}
+\DoxyCodeLine{\Hypertarget{_r_m_8_enum_8cs_source_l00010}00010\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_r_m_8_enum_8cs_source_l00011}00011\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keyword}{static}\ Dictionary<Type,\ List<string>>\ extraEnums\ =\ \textcolor{keyword}{new}\ Dictionary<Type,\ List<string>>();}
+\DoxyCodeLine{\Hypertarget{_r_m_8_enum_8cs_source_l00012}00012\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keyword}{static}\ Dictionary<Type,\ int>\ extraEnumsCount\ =\ \textcolor{keyword}{new}\ Dictionary<Type,\ int>();}
+\DoxyCodeLine{\Hypertarget{_r_m_8_enum_8cs_source_l00013}00013\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ sampleMode;}
+\DoxyCodeLine{\Hypertarget{_r_m_8_enum_8cs_source_l00014}00014\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ T\ ToEnum<T>(\textcolor{keyword}{this}\ \textcolor{keywordtype}{string}\ name)\ where\ T\ :\ Enum\ =>\ (T)name.ToEnum(typeof(T));}
+\DoxyCodeLine{\Hypertarget{_r_m_8_enum_8cs_source_l00015}00015\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{object}\ ToEnum(\textcolor{keyword}{this}\ \textcolor{keywordtype}{string}\ name,\ Type\ type)}
+\DoxyCodeLine{\Hypertarget{_r_m_8_enum_8cs_source_l00016}00016\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_r_m_8_enum_8cs_source_l00017}00017\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (Enum.IsDefined(type,\ name))}
+\DoxyCodeLine{\Hypertarget{_r_m_8_enum_8cs_source_l00018}00018\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_r_m_8_enum_8cs_source_l00019}00019\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ Enum.Parse(type,\ name,\ \textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{_r_m_8_enum_8cs_source_l00020}00020\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_r_m_8_enum_8cs_source_l00021}00021\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!extraEnums.ContainsKey(type))}
+\DoxyCodeLine{\Hypertarget{_r_m_8_enum_8cs_source_l00022}00022\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_r_m_8_enum_8cs_source_l00023}00023\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ extraEnums.Add(type,\ \textcolor{keyword}{new}\ List<string>());}
+\DoxyCodeLine{\Hypertarget{_r_m_8_enum_8cs_source_l00024}00024\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ sampleMode\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{_r_m_8_enum_8cs_source_l00025}00025\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ extraEnumsCount.Add(type,\ Enum.GetNames(type).Length\ +\ 1);}
+\DoxyCodeLine{\Hypertarget{_r_m_8_enum_8cs_source_l00026}00026\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ sampleMode\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{_r_m_8_enum_8cs_source_l00027}00027\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_r_m_8_enum_8cs_source_l00028}00028\ \ \ \ \ \ \ \ \ \ \ \ \ extraEnums[type].AddIfNotExsist(name);}
+\DoxyCodeLine{\Hypertarget{_r_m_8_enum_8cs_source_l00029}00029\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ extraEnumsCount[type]\ +\ extraEnums[type].IndexOf(name);}
+\DoxyCodeLine{\Hypertarget{_r_m_8_enum_8cs_source_l00030}00030\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_r_m_8_enum_8cs_source_l00031}00031\ }
+\DoxyCodeLine{\Hypertarget{_r_m_8_enum_8cs_source_l00032}00032\ \ \ \ \ \ \ \ \ [HarmonyPatch(typeof(Enum),\ \textcolor{stringliteral}{"{}GetNames"{}}),\ HarmonyPostfix]}
+\DoxyCodeLine{\Hypertarget{_r_m_8_enum_8cs_source_l00033}00033\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ Postfix\_GetNames(Type\ enumType,\ ref\ \textcolor{keywordtype}{string}[]\ \_\_result)}
+\DoxyCodeLine{\Hypertarget{_r_m_8_enum_8cs_source_l00034}00034\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_r_m_8_enum_8cs_source_l00035}00035\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (enumType\ ==\ \textcolor{keyword}{null})}
+\DoxyCodeLine{\Hypertarget{_r_m_8_enum_8cs_source_l00036}00036\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_r_m_8_enum_8cs_source_l00037}00037\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{_r_m_8_enum_8cs_source_l00038}00038\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_r_m_8_enum_8cs_source_l00039}00039\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (sampleMode\ ||\ !extraEnums.ContainsKey(enumType))}
+\DoxyCodeLine{\Hypertarget{_r_m_8_enum_8cs_source_l00040}00040\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_r_m_8_enum_8cs_source_l00041}00041\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{_r_m_8_enum_8cs_source_l00042}00042\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_r_m_8_enum_8cs_source_l00043}00043\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!enumType.IsEnum)}
+\DoxyCodeLine{\Hypertarget{_r_m_8_enum_8cs_source_l00044}00044\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_r_m_8_enum_8cs_source_l00045}00045\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Log(LogLevel.Error,\ \$\textcolor{stringliteral}{"{}[\{enumType.FullName\}]\ isn't\ an\ enum\ type!"{}});}
+\DoxyCodeLine{\Hypertarget{_r_m_8_enum_8cs_source_l00046}00046\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{_r_m_8_enum_8cs_source_l00047}00047\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_r_m_8_enum_8cs_source_l00048}00048\ \ \ \ \ \ \ \ \ \ \ \ \ \_\_result\ =\ \_\_result.AddAs(extraEnums[enumType].ToArray());}
+\DoxyCodeLine{\Hypertarget{_r_m_8_enum_8cs_source_l00049}00049\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_r_m_8_enum_8cs_source_l00050}00050\ \ \ \ \ \ \ \ \ [HarmonyPatch(typeof(Enum),\ \textcolor{stringliteral}{"{}GetName"{}}),\ HarmonyPostfix]}
+\DoxyCodeLine{\Hypertarget{_r_m_8_enum_8cs_source_l00051}00051\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ Postfix\_GetName(Type\ enumType,\ \textcolor{keywordtype}{object}\ value,\ ref\ \textcolor{keywordtype}{string}\ \_\_result)}
+\DoxyCodeLine{\Hypertarget{_r_m_8_enum_8cs_source_l00052}00052\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_r_m_8_enum_8cs_source_l00053}00053\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!enumType.IsEnum\ ||\ Convert.IsDBNull(value)\ ||\ sampleMode\ ||\ !extraEnums.ContainsKey(enumType))}
+\DoxyCodeLine{\Hypertarget{_r_m_8_enum_8cs_source_l00054}00054\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_r_m_8_enum_8cs_source_l00055}00055\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{_r_m_8_enum_8cs_source_l00056}00056\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_r_m_8_enum_8cs_source_l00057}00057\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ v\ =\ (int)value;}
+\DoxyCodeLine{\Hypertarget{_r_m_8_enum_8cs_source_l00058}00058\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (v\ <\ extraEnumsCount[enumType])}
+\DoxyCodeLine{\Hypertarget{_r_m_8_enum_8cs_source_l00059}00059\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_r_m_8_enum_8cs_source_l00060}00060\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{_r_m_8_enum_8cs_source_l00061}00061\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_r_m_8_enum_8cs_source_l00062}00062\ \ \ \ \ \ \ \ \ \ \ \ \ \_\_result\ =\ extraEnums[enumType][v\ -\/\ extraEnumsCount[enumType]];}
+\DoxyCodeLine{\Hypertarget{_r_m_8_enum_8cs_source_l00063}00063\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_r_m_8_enum_8cs_source_l00064}00064\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_r_m_8_enum_8cs_source_l00065}00065\ \}}
+
+\end{DoxyCode}

@@ -1,0 +1,90 @@
+\doxysection{RM.\+Core.\+cs}
+\hypertarget{_r_m_8_core_8cs_source}{}\label{_r_m_8_core_8cs_source}\index{E:/Baldi s Basics Games/Plugins/Unity Interface/Main/ResourcesManager/RM.Core.cs@{E:/Baldi s Basics Games/Plugins/Unity Interface/Main/ResourcesManager/RM.Core.cs}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_r_m_8_core_8cs_source_l00001}00001\ \textcolor{keyword}{using\ }Object\ =\ UnityEngine.Object;}
+\DoxyCodeLine{\Hypertarget{_r_m_8_core_8cs_source_l00002}00002\ \textcolor{keyword}{using\ }System;}
+\DoxyCodeLine{\Hypertarget{_r_m_8_core_8cs_source_l00003}00003\ \textcolor{keyword}{using\ }System.Collections.Generic;}
+\DoxyCodeLine{\Hypertarget{_r_m_8_core_8cs_source_l00004}00004\ \textcolor{keyword}{using\ }System.Linq;}
+\DoxyCodeLine{\Hypertarget{_r_m_8_core_8cs_source_l00005}00005\ \textcolor{keyword}{using\ }UnityEngine;}
+\DoxyCodeLine{\Hypertarget{_r_m_8_core_8cs_source_l00006}00006\ \textcolor{keyword}{using\ }BepInEx.Logging;}
+\DoxyCodeLine{\Hypertarget{_r_m_8_core_8cs_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{_r_m_8_core_8cs_source_l00008}00008\ \textcolor{keyword}{namespace\ }\doxymbox{\hyperlink{namespace_unity_interface}{UnityInterface}}}
+\DoxyCodeLine{\Hypertarget{_r_m_8_core_8cs_source_l00009}00009\ \{}
+\DoxyCodeLine{\Hypertarget{_r_m_8_core_8cs_source_l00013}00013\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ \textcolor{keyword}{partial\ class\ }\doxymbox{\hyperlink{class_unity_interface_1_1_resources_manager}{ResourcesManager}}}
+\DoxyCodeLine{\Hypertarget{_r_m_8_core_8cs_source_l00014}00014\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_r_m_8_core_8cs_source_l00015}00015\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ Dictionary<Type,\ Dictionary<string,\ Object>>\ loadedAssets\ =\ \textcolor{keyword}{new}\ Dictionary<Type,\ Dictionary<string,\ Object>>();}
+\DoxyCodeLine{\Hypertarget{_r_m_8_core_8cs_source_l00016}00016\ \ \ \ \ \ \ \ \ \textcolor{keyword}{internal}\ \textcolor{keyword}{static}\ Dictionary<Type,\ IAssetLoader<Object>>\ assetLoaders\ =\ \textcolor{keyword}{new}\ Dictionary<Type,\ IAssetLoader<Object>>();}
+\DoxyCodeLine{\Hypertarget{_r_m_8_core_8cs_source_l00020}\doxymbox{\hyperlink{class_unity_interface_1_1_resources_manager_af3e1c9792e99bde78271433650261b6d}{00020}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ Transform\ \doxymbox{\hyperlink{class_unity_interface_1_1_resources_manager_af3e1c9792e99bde78271433650261b6d}{prefabParent}}\ \{\ \textcolor{keyword}{get};\ \textcolor{keyword}{internal}\ \textcolor{keyword}{set};\ \}}
+\DoxyCodeLine{\Hypertarget{_r_m_8_core_8cs_source_l00021}00021\ \ \ \ \ \ \ \ \ \textcolor{keyword}{internal}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ Log(LogLevel\ logLevel,\ \textcolor{keywordtype}{string}\ log)\ =>\ UnityInterfacePlugin.assetLogger?.Log(logLevel,\ log);}
+\DoxyCodeLine{\Hypertarget{_r_m_8_core_8cs_source_l00027}\doxymbox{\hyperlink{class_unity_interface_1_1_resources_manager_a9d71cd6d84c51c5aeb3e1d5aea6f5926}{00027}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ LoadFromPath<T>(\textcolor{keywordtype}{string}\ path)\ where\ T\ :\ Object\ =>\ LoadFromPath(path,\ typeof(T));}
+\DoxyCodeLine{\Hypertarget{_r_m_8_core_8cs_source_l00028}00028\ \ \ \ \ \ \ \ \ \textcolor{keyword}{internal}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ LoadFromPath(\textcolor{keywordtype}{string}\ path,\ Type\ type)}
+\DoxyCodeLine{\Hypertarget{_r_m_8_core_8cs_source_l00029}00029\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_r_m_8_core_8cs_source_l00030}00030\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!assetLoaders.ContainsKey(type)\ ||\ assetLoaders[type]\ ==\ \textcolor{keyword}{null})}
+\DoxyCodeLine{\Hypertarget{_r_m_8_core_8cs_source_l00031}00031\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_r_m_8_core_8cs_source_l00032}00032\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Debug.LogWarning(\$\textcolor{stringliteral}{"{}Loader\ [\{type.Name\}]\ wasn't\ found!\ Please\ add\ it\ on\ AssetManager.AddLoader\ method\ during\ YOUR\ Awake\ Method!"{}});}
+\DoxyCodeLine{\Hypertarget{_r_m_8_core_8cs_source_l00033}00033\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{_r_m_8_core_8cs_source_l00034}00034\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_r_m_8_core_8cs_source_l00035}00035\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}}
+\DoxyCodeLine{\Hypertarget{_r_m_8_core_8cs_source_l00036}00036\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_r_m_8_core_8cs_source_l00037}00037\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Object\ a\ =\ assetLoaders[type].Load(path);}
+\DoxyCodeLine{\Hypertarget{_r_m_8_core_8cs_source_l00038}00038\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (a)}
+\DoxyCodeLine{\Hypertarget{_r_m_8_core_8cs_source_l00039}00039\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_r_m_8_core_8cs_source_l00040}00040\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Add(a);}
+\DoxyCodeLine{\Hypertarget{_r_m_8_core_8cs_source_l00041}00041\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_r_m_8_core_8cs_source_l00042}00042\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_r_m_8_core_8cs_source_l00043}00043\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{catch}\ (Exception\ e)}
+\DoxyCodeLine{\Hypertarget{_r_m_8_core_8cs_source_l00044}00044\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_r_m_8_core_8cs_source_l00045}00045\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Log(LogLevel.Error,\ \$\textcolor{stringliteral}{"{}[\{type.Name\}]\ \{path\}\ loaded\ Failed!\ Exception:\{e\}"{}});}
+\DoxyCodeLine{\Hypertarget{_r_m_8_core_8cs_source_l00046}00046\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_r_m_8_core_8cs_source_l00047}00047\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_r_m_8_core_8cs_source_l00053}\doxymbox{\hyperlink{class_unity_interface_1_1_resources_manager_a93e69b27a2567d31ef5796b76b40eaa0}{00053}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_unity_interface_1_1_resources_manager_a93e69b27a2567d31ef5796b76b40eaa0}{Add<T>}}(T\ asset)\ where\ T\ :\ Object}
+\DoxyCodeLine{\Hypertarget{_r_m_8_core_8cs_source_l00054}00054\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_r_m_8_core_8cs_source_l00055}00055\ \ \ \ \ \ \ \ \ \ \ \ \ Type\ type\ =\ asset.GetType();}
+\DoxyCodeLine{\Hypertarget{_r_m_8_core_8cs_source_l00056}00056\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!loadedAssets.ContainsKey(type))}
+\DoxyCodeLine{\Hypertarget{_r_m_8_core_8cs_source_l00057}00057\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_r_m_8_core_8cs_source_l00058}00058\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ loadedAssets.Add(type,\ \textcolor{keyword}{new}\ Dictionary<string,\ Object>());}
+\DoxyCodeLine{\Hypertarget{_r_m_8_core_8cs_source_l00059}00059\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_r_m_8_core_8cs_source_l00060}00060\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!loadedAssets[type].ContainsKey(asset.name))}
+\DoxyCodeLine{\Hypertarget{_r_m_8_core_8cs_source_l00061}00061\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_r_m_8_core_8cs_source_l00062}00062\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ loadedAssets[type].Add(asset.name,\ asset);}
+\DoxyCodeLine{\Hypertarget{_r_m_8_core_8cs_source_l00063}00063\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Log(LogLevel.Info,\ \$\textcolor{stringliteral}{"{}[\{type.Name\}]\ [\{asset.GetInstanceID()\}]\ \{asset.name\}\ was\ addend!"{}});}
+\DoxyCodeLine{\Hypertarget{_r_m_8_core_8cs_source_l00064}00064\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_r_m_8_core_8cs_source_l00065}00065\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{_r_m_8_core_8cs_source_l00066}00066\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_r_m_8_core_8cs_source_l00067}00067\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Log(LogLevel.Warning,\ \$\textcolor{stringliteral}{"{}[\{type.Name\}]\ [\{asset.GetInstanceID()\}]\ \{asset.name\}\ Only\ supports\ unique\ names\ for\ each\ type!\ But\ you\ have\ copies!"{}});}
+\DoxyCodeLine{\Hypertarget{_r_m_8_core_8cs_source_l00068}00068\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_r_m_8_core_8cs_source_l00069}00069\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_r_m_8_core_8cs_source_l00070}00070\ \ \ \ \ \ \ \ \ \textcolor{keyword}{internal}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ AddLoader(Type\ assetType,\ IAssetLoader<Object>\ loader)}
+\DoxyCodeLine{\Hypertarget{_r_m_8_core_8cs_source_l00071}00071\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_r_m_8_core_8cs_source_l00072}00072\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!assetLoaders.ContainsKey(assetType))}
+\DoxyCodeLine{\Hypertarget{_r_m_8_core_8cs_source_l00073}00073\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_r_m_8_core_8cs_source_l00074}00074\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ assetLoaders.Add(assetType,\ loader);}
+\DoxyCodeLine{\Hypertarget{_r_m_8_core_8cs_source_l00075}00075\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_r_m_8_core_8cs_source_l00076}00076\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{_r_m_8_core_8cs_source_l00077}00077\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_r_m_8_core_8cs_source_l00078}00078\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ assetLoaders[assetType]\ =\ loader;}
+\DoxyCodeLine{\Hypertarget{_r_m_8_core_8cs_source_l00079}00079\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_r_m_8_core_8cs_source_l00080}00080\ \ \ \ \ \ \ \ \ \ \ \ \ Log(LogLevel.Info,\ \$\textcolor{stringliteral}{"{}[\{assetType.Name\}]\ Loader:\{loader.GetType().Name\}\ was\ addend\ into\ system!"{}});}
+\DoxyCodeLine{\Hypertarget{_r_m_8_core_8cs_source_l00081}00081\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_r_m_8_core_8cs_source_l00086}\doxymbox{\hyperlink{class_unity_interface_1_1_resources_manager_a9857edd3a41be1c88b8294985367a18a}{00086}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_unity_interface_1_1_resources_manager_a9857edd3a41be1c88b8294985367a18a}{SetAsPrefab}}(GameObject\ prefab)\ =>\ prefab.transform.SetParent(\doxymbox{\hyperlink{class_unity_interface_1_1_resources_manager_af3e1c9792e99bde78271433650261b6d}{prefabParent}});}
+\DoxyCodeLine{\Hypertarget{_r_m_8_core_8cs_source_l00092}\doxymbox{\hyperlink{class_unity_interface_1_1_resources_manager_a41d52e22a5e2e57c06e53d37d0c532a6}{00092}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ Object[]\ \doxymbox{\hyperlink{class_unity_interface_1_1_resources_manager_a41d52e22a5e2e57c06e53d37d0c532a6}{Get}}(Type\ type)}
+\DoxyCodeLine{\Hypertarget{_r_m_8_core_8cs_source_l00093}00093\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_r_m_8_core_8cs_source_l00094}00094\ \ \ \ \ \ \ \ \ \ \ \ \ List<Object>\ result\ =\ \textcolor{keyword}{new}\ List<Object>(Resources.FindObjectsOfTypeAll(type));}
+\DoxyCodeLine{\Hypertarget{_r_m_8_core_8cs_source_l00095}00095\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (loadedAssets.TryGetValue(type,\ out\ var\ val))}
+\DoxyCodeLine{\Hypertarget{_r_m_8_core_8cs_source_l00096}00096\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_r_m_8_core_8cs_source_l00097}00097\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ result.AddRange(val.Values);}
+\DoxyCodeLine{\Hypertarget{_r_m_8_core_8cs_source_l00098}00098\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_r_m_8_core_8cs_source_l00099}00099\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (typeof(Component).IsAssignableFrom(type))}
+\DoxyCodeLine{\Hypertarget{_r_m_8_core_8cs_source_l00100}00100\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_r_m_8_core_8cs_source_l00101}00101\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ result.AddRange(\doxymbox{\hyperlink{class_unity_interface_1_1_resources_manager_af3e1c9792e99bde78271433650261b6d}{prefabParent}}.GetComponentsInChildren(type,\ \textcolor{keyword}{true}));}
+\DoxyCodeLine{\Hypertarget{_r_m_8_core_8cs_source_l00102}00102\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_r_m_8_core_8cs_source_l00103}00103\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ result.ToArray().UniqueCheck();}
+\DoxyCodeLine{\Hypertarget{_r_m_8_core_8cs_source_l00104}00104\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_r_m_8_core_8cs_source_l00110}\doxymbox{\hyperlink{class_unity_interface_1_1_resources_manager_a306e17c64252cc1fbc0790e56bc5ba51}{00110}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ T[]\ \doxymbox{\hyperlink{class_unity_interface_1_1_resources_manager_a41d52e22a5e2e57c06e53d37d0c532a6}{Get<T>}}()\ where\ T\ :\ Object\ =>\ \doxymbox{\hyperlink{class_unity_interface_1_1_resources_manager_a41d52e22a5e2e57c06e53d37d0c532a6}{Get}}(typeof(T)).OfType<T>().ToArray();}
+\DoxyCodeLine{\Hypertarget{_r_m_8_core_8cs_source_l00117}\doxymbox{\hyperlink{class_unity_interface_1_1_resources_manager_aabb74bbfb451765a112508f740d85f99}{00117}}\ \ \ \ \ \ \ \ \ public\ static\ Object\ \doxymbox{\hyperlink{class_unity_interface_1_1_resources_manager_a41d52e22a5e2e57c06e53d37d0c532a6}{Get}}(Type\ type,\ \textcolor{keywordtype}{string}\ name)\ =>\ \doxymbox{\hyperlink{class_unity_interface_1_1_resources_manager_a41d52e22a5e2e57c06e53d37d0c532a6}{Get}}(type).FirstOrDefault(a\ =>\ a.name\ ==\ name);}
+\DoxyCodeLine{\Hypertarget{_r_m_8_core_8cs_source_l00123}\doxymbox{\hyperlink{class_unity_interface_1_1_resources_manager_ad4a871961a462c9e4ba23bd4e12db9fb}{00123}}\ \ \ \ \ \ \ \ \ public\ static\ T\ \doxymbox{\hyperlink{class_unity_interface_1_1_resources_manager_a41d52e22a5e2e57c06e53d37d0c532a6}{Get}}<T>(\textcolor{keywordtype}{string}\ name)\ where\ T\ :\ Object\ =>\ (T)\doxymbox{\hyperlink{class_unity_interface_1_1_resources_manager_a41d52e22a5e2e57c06e53d37d0c532a6}{Get}}(typeof(T),\ name);}
+\DoxyCodeLine{\Hypertarget{_r_m_8_core_8cs_source_l00124}00124\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_r_m_8_core_8cs_source_l00125}00125\ \}}
+
+\end{DoxyCode}

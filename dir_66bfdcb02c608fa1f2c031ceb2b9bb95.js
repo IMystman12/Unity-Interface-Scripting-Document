@@ -1,4 +1,0 @@
-var dir_66bfdcb02c608fa1f2c031ceb2b9bb95 =
-[
-    [ "Plugins", "dir_284149cf8576170527749af314d61c26.html", "dir_284149cf8576170527749af314d61c26" ]
-];

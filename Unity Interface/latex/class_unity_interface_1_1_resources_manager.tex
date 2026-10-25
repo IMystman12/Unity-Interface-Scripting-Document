@@ -1,0 +1,449 @@
+\doxysection{Unity\+Interface.\+Resources\+Manager Class Reference}
+\hypertarget{class_unity_interface_1_1_resources_manager}{}\label{class_unity_interface_1_1_resources_manager}\index{UnityInterface.ResourcesManager@{UnityInterface.ResourcesManager}}
+
+
+Manager assets from base game or loaded.  
+
+
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static T \doxymbox{\hyperlink{class_unity_interface_1_1_resources_manager_a115f1648e2b7e9ec4e81a107f67265cd}{Get\+Metadata$<$ T $>$}} (this string path\+Base, T defualt)
+\item 
+static Texture2D \doxymbox{\hyperlink{class_unity_interface_1_1_resources_manager_ac1870f6a882335878fd8b02d56fa43a3}{Get\+Texture2\+DFrom\+Path\+Simple}} (string path)
+\item 
+static Sprite \doxymbox{\hyperlink{class_unity_interface_1_1_resources_manager_a164eefb2f6623c029cb5c94c851c0a76}{Texture2\+DTo\+Sprite\+Simple}} (Texture2D texture)
+\item 
+static Audio\+Clip \doxymbox{\hyperlink{class_unity_interface_1_1_resources_manager_ade5661bdb2b1982fc6fd35421fd9609e}{Get\+Audio\+Clip\+From\+Path}} (string path, Audio\+Type type=Audio\+Type.\+UNKNOWN)
+\item 
+static Mesh \doxymbox{\hyperlink{class_unity_interface_1_1_resources_manager_a39884330988bc722e31825b22e93a30d}{Get\+Mesh\+From\+Path}} (string path)
+\item 
+static Asset\+Bundle \doxymbox{\hyperlink{class_unity_interface_1_1_resources_manager_ac71b36913cdc4db8109d61559ba59707}{Get\+Asset\+Bundle\+From\+Path}} (string path)
+\item 
+static void \doxymbox{\hyperlink{class_unity_interface_1_1_resources_manager_a9d71cd6d84c51c5aeb3e1d5aea6f5926}{Load\+From\+Path$<$ T $>$}} (string path)
+\begin{DoxyCompactList}\small\item\em Load asset manually from path with exists loader. If the loader is not exists, it will log a warning. \end{DoxyCompactList}\item 
+static void \doxymbox{\hyperlink{class_unity_interface_1_1_resources_manager_a93e69b27a2567d31ef5796b76b40eaa0}{Add$<$ T $>$}} (T asset)
+\begin{DoxyCompactList}\small\item\em Add an asset into system. It will be available for Get method. If the asset name is duplicate, it will log a warning. \end{DoxyCompactList}\item 
+static void \doxymbox{\hyperlink{class_unity_interface_1_1_resources_manager_a9857edd3a41be1c88b8294985367a18a}{Set\+As\+Prefab}} (Game\+Object prefab)
+\begin{DoxyCompactList}\small\item\em Attach the prefab into the prefab root. It will be available for Get method. If the prefab name is duplicate, it will log a warning. \end{DoxyCompactList}\item 
+static Object\+[$\,$] \doxymbox{\hyperlink{class_unity_interface_1_1_resources_manager_a41d52e22a5e2e57c06e53d37d0c532a6}{Get}} (Type type)
+\begin{DoxyCompactList}\small\item\em Get a list of objects by type. It will include built-\/in resources, loaded assets and prefab children. \end{DoxyCompactList}\item 
+static T\+[$\,$] \doxymbox{\hyperlink{class_unity_interface_1_1_resources_manager_a306e17c64252cc1fbc0790e56bc5ba51}{Get$<$ T $>$}} ()
+\begin{DoxyCompactList}\small\item\em Get a list of objects by type. It will include built-\/in resources, loaded assets and prefab children. \end{DoxyCompactList}\item 
+static Object \doxymbox{\hyperlink{class_unity_interface_1_1_resources_manager_aabb74bbfb451765a112508f740d85f99}{Get}} (Type type, string name)
+\begin{DoxyCompactList}\small\item\em Get a list of objects by type. It will include built-\/in resources, loaded assets and prefab children. \end{DoxyCompactList}\item 
+static T \doxymbox{\hyperlink{class_unity_interface_1_1_resources_manager_ad4a871961a462c9e4ba23bd4e12db9fb}{Get$<$ T $>$}} (string name)
+\begin{DoxyCompactList}\small\item\em Get a list of objects by type. It will include built-\/in resources, loaded assets and prefab children. \end{DoxyCompactList}\item 
+static T \doxymbox{\hyperlink{class_unity_interface_1_1_resources_manager_af00bad134c3f7fd926297b13718e91eb}{To\+Enum$<$ T $>$}} (this string name)
+\item 
+static object \doxymbox{\hyperlink{class_unity_interface_1_1_resources_manager_a111c523f9993c20e3baafb3f1b482f1e}{To\+Enum}} (this string name, Type type)
+\item 
+static string \doxymbox{\hyperlink{class_unity_interface_1_1_resources_manager_a7e890a06eb0bb48c690dc7e2d04f70e2}{To\+Json}} (object obj)
+\item 
+static string \doxymbox{\hyperlink{class_unity_interface_1_1_resources_manager_a09f8f82d618893d331cc9ec119fac5da}{Prepare\+Json\+For\+Overwrite}} (string json, Type type)
+\item 
+static object \doxymbox{\hyperlink{class_unity_interface_1_1_resources_manager_aed22c89cc42c40ddb241b6abdc119e2e}{From\+Json}} (string json, Type type)
+\item 
+static T \doxymbox{\hyperlink{class_unity_interface_1_1_resources_manager_a773a4334dcbe54b39cf8fa014ef37f7a}{From\+Json$<$ T $>$}} (string json)
+\item 
+static T \doxymbox{\hyperlink{class_unity_interface_1_1_resources_manager_ada73bb5d3e827381ffc41ad9ad25c242}{Get\+Scriptable\+Object\+Or\+Create$<$ T $>$}} (this Base\+Unity\+Plugin plugin, string name)
+\item 
+static void \doxymbox{\hyperlink{class_unity_interface_1_1_resources_manager_a067379465c0d60394cd630da57141e99}{Save\+Scriptable\+Object$<$ T $>$}} (this Base\+Unity\+Plugin plugin, Scriptable\+Object itm)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+static Transform \doxymbox{\hyperlink{class_unity_interface_1_1_resources_manager_af3e1c9792e99bde78271433650261b6d}{prefab\+Parent}}\hspace{0.3cm}{\ttfamily  \+[get, set]}
+\begin{DoxyCompactList}\small\item\em The root of prefabs which are not built-\/in or loaded from asset bundle. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Manager assets from base game or loaded. 
+
+Definition at line \doxymbox{\hyperlink{_r_m_8_built_in_load_8cs_source_l00013}{13}} of file \doxymbox{\hyperlink{_r_m_8_built_in_load_8cs_source}{RM.\+Built\+In\+Load.\+cs}}.
+
+
+
+\label{class_unity_interface_1_1_resources_manager_doc-func-members}
+\Hypertarget{class_unity_interface_1_1_resources_manager_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_unity_interface_1_1_resources_manager_a93e69b27a2567d31ef5796b76b40eaa0}\index{UnityInterface.ResourcesManager@{UnityInterface.ResourcesManager}!Add$<$ T $>$@{Add$<$ T $>$}}
+\index{Add$<$ T $>$@{Add$<$ T $>$}!UnityInterface.ResourcesManager@{UnityInterface.ResourcesManager}}
+\doxysubsubsection{\texorpdfstring{Add$<$ T $>$()}{Add< T >()}}
+{\footnotesize\ttfamily \label{class_unity_interface_1_1_resources_manager_a93e69b27a2567d31ef5796b76b40eaa0} 
+void Unity\+Interface.\+Resources\+Manager.\+Add$<$ T $>$ (\begin{DoxyParamCaption}\item[{T}]{asset}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Add an asset into system. It will be available for Get method. If the asset name is duplicate, it will log a warning. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Object Type\\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em asset} & Asset File Path\\
+\hline
+\end{DoxyParams}
+\begin{Desc}
+\item[Type Constraints]\begin{description}
+\item[{\em T} : {\em Object}]\end{description}
+\end{Desc}
+
+
+Definition at line \doxymbox{\hyperlink{_r_m_8_core_8cs_source_l00053}{53}} of file \doxymbox{\hyperlink{_r_m_8_core_8cs_source}{RM.\+Core.\+cs}}.
+
+\Hypertarget{class_unity_interface_1_1_resources_manager_aed22c89cc42c40ddb241b6abdc119e2e}\index{UnityInterface.ResourcesManager@{UnityInterface.ResourcesManager}!FromJson@{FromJson}}
+\index{FromJson@{FromJson}!UnityInterface.ResourcesManager@{UnityInterface.ResourcesManager}}
+\doxysubsubsection{\texorpdfstring{FromJson()}{FromJson()}}
+{\footnotesize\ttfamily \label{class_unity_interface_1_1_resources_manager_aed22c89cc42c40ddb241b6abdc119e2e} 
+object Unity\+Interface.\+Resources\+Manager.\+From\+Json (\begin{DoxyParamCaption}\item[{string}]{json}{, }\item[{Type}]{type}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \doxymbox{\hyperlink{_r_m_8_json_8cs_source_l00013}{13}} of file \doxymbox{\hyperlink{_r_m_8_json_8cs_source}{RM.\+Json.\+cs}}.
+
+\Hypertarget{class_unity_interface_1_1_resources_manager_a773a4334dcbe54b39cf8fa014ef37f7a}\index{UnityInterface.ResourcesManager@{UnityInterface.ResourcesManager}!FromJson$<$ T $>$@{FromJson$<$ T $>$}}
+\index{FromJson$<$ T $>$@{FromJson$<$ T $>$}!UnityInterface.ResourcesManager@{UnityInterface.ResourcesManager}}
+\doxysubsubsection{\texorpdfstring{FromJson$<$ T $>$()}{FromJson< T >()}}
+{\footnotesize\ttfamily \label{class_unity_interface_1_1_resources_manager_a773a4334dcbe54b39cf8fa014ef37f7a} 
+T Unity\+Interface.\+Resources\+Manager.\+From\+Json$<$ T $>$ (\begin{DoxyParamCaption}\item[{string}]{json}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \doxymbox{\hyperlink{_r_m_8_json_8cs_source_l00014}{14}} of file \doxymbox{\hyperlink{_r_m_8_json_8cs_source}{RM.\+Json.\+cs}}.
+
+\Hypertarget{class_unity_interface_1_1_resources_manager_a41d52e22a5e2e57c06e53d37d0c532a6}\index{UnityInterface.ResourcesManager@{UnityInterface.ResourcesManager}!Get@{Get}}
+\index{Get@{Get}!UnityInterface.ResourcesManager@{UnityInterface.ResourcesManager}}
+\doxysubsubsection{\texorpdfstring{Get()}{Get()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_unity_interface_1_1_resources_manager_a41d52e22a5e2e57c06e53d37d0c532a6} 
+Object\+[$\,$]\+ Unity\+Interface.\+Resources\+Manager.\+Get (\begin{DoxyParamCaption}\item[{Type}]{type}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Get a list of objects by type. It will include built-\/in resources, loaded assets and prefab children. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em type} & Object Type\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A list of objects
+\end{DoxyReturn}
+
+
+Definition at line \doxymbox{\hyperlink{_r_m_8_core_8cs_source_l00092}{92}} of file \doxymbox{\hyperlink{_r_m_8_core_8cs_source}{RM.\+Core.\+cs}}.
+
+Here is the caller graph for this function:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_unity_interface_1_1_resources_manager_a41d52e22a5e2e57c06e53d37d0c532a6_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_unity_interface_1_1_resources_manager_aabb74bbfb451765a112508f740d85f99}\index{UnityInterface.ResourcesManager@{UnityInterface.ResourcesManager}!Get@{Get}}
+\index{Get@{Get}!UnityInterface.ResourcesManager@{UnityInterface.ResourcesManager}}
+\doxysubsubsection{\texorpdfstring{Get()}{Get()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_unity_interface_1_1_resources_manager_aabb74bbfb451765a112508f740d85f99} 
+Object Unity\+Interface.\+Resources\+Manager.\+Get (\begin{DoxyParamCaption}\item[{Type}]{type}{, }\item[{string}]{name}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Get a list of objects by type. It will include built-\/in resources, loaded assets and prefab children. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em type} & Object Type\\
+\hline
+{\em name} & Totaly same name!\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An Object
+\end{DoxyReturn}
+
+
+Definition at line \doxymbox{\hyperlink{_r_m_8_core_8cs_source_l00117}{117}} of file \doxymbox{\hyperlink{_r_m_8_core_8cs_source}{RM.\+Core.\+cs}}.
+
+Here is the call graph for this function:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_unity_interface_1_1_resources_manager_aabb74bbfb451765a112508f740d85f99_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_unity_interface_1_1_resources_manager_a306e17c64252cc1fbc0790e56bc5ba51}\index{UnityInterface.ResourcesManager@{UnityInterface.ResourcesManager}!Get$<$ T $>$@{Get$<$ T $>$}}
+\index{Get$<$ T $>$@{Get$<$ T $>$}!UnityInterface.ResourcesManager@{UnityInterface.ResourcesManager}}
+\doxysubsubsection{\texorpdfstring{Get$<$ T $>$()}{Get< T >()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_unity_interface_1_1_resources_manager_a306e17c64252cc1fbc0790e56bc5ba51} 
+T\+[$\,$]\+ \doxymbox{\hyperlink{class_unity_interface_1_1_resources_manager_a41d52e22a5e2e57c06e53d37d0c532a6}{Unity\+Interface.\+Resources\+Manager.\+Get}}$<$ T $>$ (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Get a list of objects by type. It will include built-\/in resources, loaded assets and prefab children. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Object Type\\
+\hline
+\end{DoxyTemplParams}
+\begin{DoxyReturn}{Returns}
+A list of objects
+\end{DoxyReturn}
+\begin{Desc}
+\item[Type Constraints]\begin{description}
+\item[{\em T} : {\em Object}]\end{description}
+\end{Desc}
+
+
+Definition at line \doxymbox{\hyperlink{_r_m_8_core_8cs_source_l00110}{110}} of file \doxymbox{\hyperlink{_r_m_8_core_8cs_source}{RM.\+Core.\+cs}}.
+
+Here is the call graph for this function:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_unity_interface_1_1_resources_manager_a306e17c64252cc1fbc0790e56bc5ba51_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_unity_interface_1_1_resources_manager_ad4a871961a462c9e4ba23bd4e12db9fb}\index{UnityInterface.ResourcesManager@{UnityInterface.ResourcesManager}!Get$<$ T $>$@{Get$<$ T $>$}}
+\index{Get$<$ T $>$@{Get$<$ T $>$}!UnityInterface.ResourcesManager@{UnityInterface.ResourcesManager}}
+\doxysubsubsection{\texorpdfstring{Get$<$ T $>$()}{Get< T >()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_unity_interface_1_1_resources_manager_ad4a871961a462c9e4ba23bd4e12db9fb} 
+T \doxymbox{\hyperlink{class_unity_interface_1_1_resources_manager_a41d52e22a5e2e57c06e53d37d0c532a6}{Unity\+Interface.\+Resources\+Manager.\+Get}}$<$ T $>$ (\begin{DoxyParamCaption}\item[{string}]{name}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Get a list of objects by type. It will include built-\/in resources, loaded assets and prefab children. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Object Type\\
+\hline
+\end{DoxyTemplParams}
+\begin{DoxyReturn}{Returns}
+An Object
+\end{DoxyReturn}
+\begin{Desc}
+\item[Type Constraints]\begin{description}
+\item[{\em T} : {\em Object}]\end{description}
+\end{Desc}
+
+
+Definition at line \doxymbox{\hyperlink{_r_m_8_core_8cs_source_l00123}{123}} of file \doxymbox{\hyperlink{_r_m_8_core_8cs_source}{RM.\+Core.\+cs}}.
+
+Here is the call graph for this function:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_unity_interface_1_1_resources_manager_ad4a871961a462c9e4ba23bd4e12db9fb_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_unity_interface_1_1_resources_manager_ac71b36913cdc4db8109d61559ba59707}\index{UnityInterface.ResourcesManager@{UnityInterface.ResourcesManager}!GetAssetBundleFromPath@{GetAssetBundleFromPath}}
+\index{GetAssetBundleFromPath@{GetAssetBundleFromPath}!UnityInterface.ResourcesManager@{UnityInterface.ResourcesManager}}
+\doxysubsubsection{\texorpdfstring{GetAssetBundleFromPath()}{GetAssetBundleFromPath()}}
+{\footnotesize\ttfamily \label{class_unity_interface_1_1_resources_manager_ac71b36913cdc4db8109d61559ba59707} 
+Asset\+Bundle Unity\+Interface.\+Resources\+Manager.\+Get\+Asset\+Bundle\+From\+Path (\begin{DoxyParamCaption}\item[{string}]{path}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \doxymbox{\hyperlink{_r_m_8_built_in_load_8cs_source_l00070}{70}} of file \doxymbox{\hyperlink{_r_m_8_built_in_load_8cs_source}{RM.\+Built\+In\+Load.\+cs}}.
+
+\Hypertarget{class_unity_interface_1_1_resources_manager_ade5661bdb2b1982fc6fd35421fd9609e}\index{UnityInterface.ResourcesManager@{UnityInterface.ResourcesManager}!GetAudioClipFromPath@{GetAudioClipFromPath}}
+\index{GetAudioClipFromPath@{GetAudioClipFromPath}!UnityInterface.ResourcesManager@{UnityInterface.ResourcesManager}}
+\doxysubsubsection{\texorpdfstring{GetAudioClipFromPath()}{GetAudioClipFromPath()}}
+{\footnotesize\ttfamily \label{class_unity_interface_1_1_resources_manager_ade5661bdb2b1982fc6fd35421fd9609e} 
+Audio\+Clip Unity\+Interface.\+Resources\+Manager.\+Get\+Audio\+Clip\+From\+Path (\begin{DoxyParamCaption}\item[{string}]{path}{, }\item[{Audio\+Type}]{type}{ = {\ttfamily AudioType::UNKNOWN}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \doxymbox{\hyperlink{_r_m_8_built_in_load_8cs_source_l00052}{52}} of file \doxymbox{\hyperlink{_r_m_8_built_in_load_8cs_source}{RM.\+Built\+In\+Load.\+cs}}.
+
+\Hypertarget{class_unity_interface_1_1_resources_manager_a39884330988bc722e31825b22e93a30d}\index{UnityInterface.ResourcesManager@{UnityInterface.ResourcesManager}!GetMeshFromPath@{GetMeshFromPath}}
+\index{GetMeshFromPath@{GetMeshFromPath}!UnityInterface.ResourcesManager@{UnityInterface.ResourcesManager}}
+\doxysubsubsection{\texorpdfstring{GetMeshFromPath()}{GetMeshFromPath()}}
+{\footnotesize\ttfamily \label{class_unity_interface_1_1_resources_manager_a39884330988bc722e31825b22e93a30d} 
+Mesh Unity\+Interface.\+Resources\+Manager.\+Get\+Mesh\+From\+Path (\begin{DoxyParamCaption}\item[{string}]{path}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \doxymbox{\hyperlink{_r_m_8_built_in_load_8cs_source_l00064}{64}} of file \doxymbox{\hyperlink{_r_m_8_built_in_load_8cs_source}{RM.\+Built\+In\+Load.\+cs}}.
+
+\Hypertarget{class_unity_interface_1_1_resources_manager_a115f1648e2b7e9ec4e81a107f67265cd}\index{UnityInterface.ResourcesManager@{UnityInterface.ResourcesManager}!GetMetadata$<$ T $>$@{GetMetadata$<$ T $>$}}
+\index{GetMetadata$<$ T $>$@{GetMetadata$<$ T $>$}!UnityInterface.ResourcesManager@{UnityInterface.ResourcesManager}}
+\doxysubsubsection{\texorpdfstring{GetMetadata$<$ T $>$()}{GetMetadata< T >()}}
+{\footnotesize\ttfamily \label{class_unity_interface_1_1_resources_manager_a115f1648e2b7e9ec4e81a107f67265cd} 
+T Unity\+Interface.\+Resources\+Manager.\+Get\+Metadata$<$ T $>$ (\begin{DoxyParamCaption}\item[{this string}]{path\+Base}{, }\item[{T}]{defualt}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\begin{Desc}
+\item[Type Constraints]\begin{description}
+\item[{\em T} : {\em class}]\end{description}
+\end{Desc}
+
+
+Definition at line \doxymbox{\hyperlink{_r_m_8_built_in_load_8cs_source_l00015}{15}} of file \doxymbox{\hyperlink{_r_m_8_built_in_load_8cs_source}{RM.\+Built\+In\+Load.\+cs}}.
+
+\Hypertarget{class_unity_interface_1_1_resources_manager_ada73bb5d3e827381ffc41ad9ad25c242}\index{UnityInterface.ResourcesManager@{UnityInterface.ResourcesManager}!GetScriptableObjectOrCreate$<$ T $>$@{GetScriptableObjectOrCreate$<$ T $>$}}
+\index{GetScriptableObjectOrCreate$<$ T $>$@{GetScriptableObjectOrCreate$<$ T $>$}!UnityInterface.ResourcesManager@{UnityInterface.ResourcesManager}}
+\doxysubsubsection{\texorpdfstring{GetScriptableObjectOrCreate$<$ T $>$()}{GetScriptableObjectOrCreate< T >()}}
+{\footnotesize\ttfamily \label{class_unity_interface_1_1_resources_manager_ada73bb5d3e827381ffc41ad9ad25c242} 
+T Unity\+Interface.\+Resources\+Manager.\+Get\+Scriptable\+Object\+Or\+Create$<$ T $>$ (\begin{DoxyParamCaption}\item[{this Base\+Unity\+Plugin}]{plugin}{, }\item[{string}]{name}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\begin{Desc}
+\item[Type Constraints]\begin{description}
+\item[{\em T} : {\em Scriptable\+Object}]\end{description}
+\end{Desc}
+
+
+Definition at line \doxymbox{\hyperlink{_r_m_8_scriptable_object_8cs_source_l00011}{11}} of file \doxymbox{\hyperlink{_r_m_8_scriptable_object_8cs_source}{RM.\+Scriptable\+Object.\+cs}}.
+
+\Hypertarget{class_unity_interface_1_1_resources_manager_ac1870f6a882335878fd8b02d56fa43a3}\index{UnityInterface.ResourcesManager@{UnityInterface.ResourcesManager}!GetTexture2DFromPathSimple@{GetTexture2DFromPathSimple}}
+\index{GetTexture2DFromPathSimple@{GetTexture2DFromPathSimple}!UnityInterface.ResourcesManager@{UnityInterface.ResourcesManager}}
+\doxysubsubsection{\texorpdfstring{GetTexture2DFromPathSimple()}{GetTexture2DFromPathSimple()}}
+{\footnotesize\ttfamily \label{class_unity_interface_1_1_resources_manager_ac1870f6a882335878fd8b02d56fa43a3} 
+Texture2D Unity\+Interface.\+Resources\+Manager.\+Get\+Texture2\+DFrom\+Path\+Simple (\begin{DoxyParamCaption}\item[{string}]{path}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \doxymbox{\hyperlink{_r_m_8_built_in_load_8cs_source_l00035}{35}} of file \doxymbox{\hyperlink{_r_m_8_built_in_load_8cs_source}{RM.\+Built\+In\+Load.\+cs}}.
+
+\Hypertarget{class_unity_interface_1_1_resources_manager_a9d71cd6d84c51c5aeb3e1d5aea6f5926}\index{UnityInterface.ResourcesManager@{UnityInterface.ResourcesManager}!LoadFromPath$<$ T $>$@{LoadFromPath$<$ T $>$}}
+\index{LoadFromPath$<$ T $>$@{LoadFromPath$<$ T $>$}!UnityInterface.ResourcesManager@{UnityInterface.ResourcesManager}}
+\doxysubsubsection{\texorpdfstring{LoadFromPath$<$ T $>$()}{LoadFromPath< T >()}}
+{\footnotesize\ttfamily \label{class_unity_interface_1_1_resources_manager_a9d71cd6d84c51c5aeb3e1d5aea6f5926} 
+void Unity\+Interface.\+Resources\+Manager.\+Load\+From\+Path$<$ T $>$ (\begin{DoxyParamCaption}\item[{string}]{path}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Load asset manually from path with exists loader. If the loader is not exists, it will log a warning. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Object Type\\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em path} & Asset File Path\\
+\hline
+\end{DoxyParams}
+\begin{Desc}
+\item[Type Constraints]\begin{description}
+\item[{\em T} : {\em Object}]\end{description}
+\end{Desc}
+
+
+Definition at line \doxymbox{\hyperlink{_r_m_8_core_8cs_source_l00027}{27}} of file \doxymbox{\hyperlink{_r_m_8_core_8cs_source}{RM.\+Core.\+cs}}.
+
+\Hypertarget{class_unity_interface_1_1_resources_manager_a09f8f82d618893d331cc9ec119fac5da}\index{UnityInterface.ResourcesManager@{UnityInterface.ResourcesManager}!PrepareJsonForOverwrite@{PrepareJsonForOverwrite}}
+\index{PrepareJsonForOverwrite@{PrepareJsonForOverwrite}!UnityInterface.ResourcesManager@{UnityInterface.ResourcesManager}}
+\doxysubsubsection{\texorpdfstring{PrepareJsonForOverwrite()}{PrepareJsonForOverwrite()}}
+{\footnotesize\ttfamily \label{class_unity_interface_1_1_resources_manager_a09f8f82d618893d331cc9ec119fac5da} 
+string Unity\+Interface.\+Resources\+Manager.\+Prepare\+Json\+For\+Overwrite (\begin{DoxyParamCaption}\item[{string}]{json}{, }\item[{Type}]{type}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \doxymbox{\hyperlink{_r_m_8_json_8cs_source_l00012}{12}} of file \doxymbox{\hyperlink{_r_m_8_json_8cs_source}{RM.\+Json.\+cs}}.
+
+\Hypertarget{class_unity_interface_1_1_resources_manager_a067379465c0d60394cd630da57141e99}\index{UnityInterface.ResourcesManager@{UnityInterface.ResourcesManager}!SaveScriptableObject$<$ T $>$@{SaveScriptableObject$<$ T $>$}}
+\index{SaveScriptableObject$<$ T $>$@{SaveScriptableObject$<$ T $>$}!UnityInterface.ResourcesManager@{UnityInterface.ResourcesManager}}
+\doxysubsubsection{\texorpdfstring{SaveScriptableObject$<$ T $>$()}{SaveScriptableObject< T >()}}
+{\footnotesize\ttfamily \label{class_unity_interface_1_1_resources_manager_a067379465c0d60394cd630da57141e99} 
+void Unity\+Interface.\+Resources\+Manager.\+Save\+Scriptable\+Object$<$ T $>$ (\begin{DoxyParamCaption}\item[{this Base\+Unity\+Plugin}]{plugin}{, }\item[{Scriptable\+Object}]{itm}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\begin{Desc}
+\item[Type Constraints]\begin{description}
+\item[{\em T} : {\em Scriptable\+Object}]\end{description}
+\end{Desc}
+
+
+Definition at line \doxymbox{\hyperlink{_r_m_8_scriptable_object_8cs_source_l00021}{21}} of file \doxymbox{\hyperlink{_r_m_8_scriptable_object_8cs_source}{RM.\+Scriptable\+Object.\+cs}}.
+
+\Hypertarget{class_unity_interface_1_1_resources_manager_a9857edd3a41be1c88b8294985367a18a}\index{UnityInterface.ResourcesManager@{UnityInterface.ResourcesManager}!SetAsPrefab@{SetAsPrefab}}
+\index{SetAsPrefab@{SetAsPrefab}!UnityInterface.ResourcesManager@{UnityInterface.ResourcesManager}}
+\doxysubsubsection{\texorpdfstring{SetAsPrefab()}{SetAsPrefab()}}
+{\footnotesize\ttfamily \label{class_unity_interface_1_1_resources_manager_a9857edd3a41be1c88b8294985367a18a} 
+void Unity\+Interface.\+Resources\+Manager.\+Set\+As\+Prefab (\begin{DoxyParamCaption}\item[{Game\+Object}]{prefab}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Attach the prefab into the prefab root. It will be available for Get method. If the prefab name is duplicate, it will log a warning. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em prefab} & The Prefab Game\+Object\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \doxymbox{\hyperlink{_r_m_8_core_8cs_source_l00086}{86}} of file \doxymbox{\hyperlink{_r_m_8_core_8cs_source}{RM.\+Core.\+cs}}.
+
+\Hypertarget{class_unity_interface_1_1_resources_manager_a164eefb2f6623c029cb5c94c851c0a76}\index{UnityInterface.ResourcesManager@{UnityInterface.ResourcesManager}!Texture2DToSpriteSimple@{Texture2DToSpriteSimple}}
+\index{Texture2DToSpriteSimple@{Texture2DToSpriteSimple}!UnityInterface.ResourcesManager@{UnityInterface.ResourcesManager}}
+\doxysubsubsection{\texorpdfstring{Texture2DToSpriteSimple()}{Texture2DToSpriteSimple()}}
+{\footnotesize\ttfamily \label{class_unity_interface_1_1_resources_manager_a164eefb2f6623c029cb5c94c851c0a76} 
+Sprite Unity\+Interface.\+Resources\+Manager.\+Texture2\+DTo\+Sprite\+Simple (\begin{DoxyParamCaption}\item[{Texture2D}]{texture}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \doxymbox{\hyperlink{_r_m_8_built_in_load_8cs_source_l00046}{46}} of file \doxymbox{\hyperlink{_r_m_8_built_in_load_8cs_source}{RM.\+Built\+In\+Load.\+cs}}.
+
+\Hypertarget{class_unity_interface_1_1_resources_manager_a111c523f9993c20e3baafb3f1b482f1e}\index{UnityInterface.ResourcesManager@{UnityInterface.ResourcesManager}!ToEnum@{ToEnum}}
+\index{ToEnum@{ToEnum}!UnityInterface.ResourcesManager@{UnityInterface.ResourcesManager}}
+\doxysubsubsection{\texorpdfstring{ToEnum()}{ToEnum()}}
+{\footnotesize\ttfamily \label{class_unity_interface_1_1_resources_manager_a111c523f9993c20e3baafb3f1b482f1e} 
+object Unity\+Interface.\+Resources\+Manager.\+To\+Enum (\begin{DoxyParamCaption}\item[{this string}]{name}{, }\item[{Type}]{type}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \doxymbox{\hyperlink{_r_m_8_enum_8cs_source_l00015}{15}} of file \doxymbox{\hyperlink{_r_m_8_enum_8cs_source}{RM.\+Enum.\+cs}}.
+
+\Hypertarget{class_unity_interface_1_1_resources_manager_af00bad134c3f7fd926297b13718e91eb}\index{UnityInterface.ResourcesManager@{UnityInterface.ResourcesManager}!ToEnum$<$ T $>$@{ToEnum$<$ T $>$}}
+\index{ToEnum$<$ T $>$@{ToEnum$<$ T $>$}!UnityInterface.ResourcesManager@{UnityInterface.ResourcesManager}}
+\doxysubsubsection{\texorpdfstring{ToEnum$<$ T $>$()}{ToEnum< T >()}}
+{\footnotesize\ttfamily \label{class_unity_interface_1_1_resources_manager_af00bad134c3f7fd926297b13718e91eb} 
+T Unity\+Interface.\+Resources\+Manager.\+To\+Enum$<$ T $>$ (\begin{DoxyParamCaption}\item[{this string}]{name}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\begin{Desc}
+\item[Type Constraints]\begin{description}
+\item[{\em T} : {\em Enum}]\end{description}
+\end{Desc}
+
+
+Definition at line \doxymbox{\hyperlink{_r_m_8_enum_8cs_source_l00014}{14}} of file \doxymbox{\hyperlink{_r_m_8_enum_8cs_source}{RM.\+Enum.\+cs}}.
+
+\Hypertarget{class_unity_interface_1_1_resources_manager_a7e890a06eb0bb48c690dc7e2d04f70e2}\index{UnityInterface.ResourcesManager@{UnityInterface.ResourcesManager}!ToJson@{ToJson}}
+\index{ToJson@{ToJson}!UnityInterface.ResourcesManager@{UnityInterface.ResourcesManager}}
+\doxysubsubsection{\texorpdfstring{ToJson()}{ToJson()}}
+{\footnotesize\ttfamily \label{class_unity_interface_1_1_resources_manager_a7e890a06eb0bb48c690dc7e2d04f70e2} 
+string Unity\+Interface.\+Resources\+Manager.\+To\+Json (\begin{DoxyParamCaption}\item[{object}]{obj}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \doxymbox{\hyperlink{_r_m_8_json_8cs_source_l00011}{11}} of file \doxymbox{\hyperlink{_r_m_8_json_8cs_source}{RM.\+Json.\+cs}}.
+
+
+
+\label{class_unity_interface_1_1_resources_manager_doc-property-members}
+\Hypertarget{class_unity_interface_1_1_resources_manager_doc-property-members}
+\doxysubsection{Property Documentation}
+\Hypertarget{class_unity_interface_1_1_resources_manager_af3e1c9792e99bde78271433650261b6d}\index{UnityInterface.ResourcesManager@{UnityInterface.ResourcesManager}!prefabParent@{prefabParent}}
+\index{prefabParent@{prefabParent}!UnityInterface.ResourcesManager@{UnityInterface.ResourcesManager}}
+\doxysubsubsection{\texorpdfstring{prefabParent}{prefabParent}}
+{\footnotesize\ttfamily \label{class_unity_interface_1_1_resources_manager_af3e1c9792e99bde78271433650261b6d} 
+Transform Unity\+Interface.\+Resources\+Manager.\+prefab\+Parent\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+The root of prefabs which are not built-\/in or loaded from asset bundle. 
+
+
+
+Definition at line \doxymbox{\hyperlink{_r_m_8_core_8cs_source_l00020}{20}} of file \doxymbox{\hyperlink{_r_m_8_core_8cs_source}{RM.\+Core.\+cs}}.
+

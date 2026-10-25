@@ -1,0 +1,682 @@
+\doxysection{Unity\+Interface.\+Collections Class Reference}
+\hypertarget{class_unity_interface_1_1_collections}{}\label{class_unity_interface_1_1_collections}\index{UnityInterface.Collections@{UnityInterface.Collections}}
+
+
+Useful Stuffs.  
+
+
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static bool \doxymbox{\hyperlink{class_unity_interface_1_1_collections_a1be5d02f88d5bce366dbbfaf1f90f7b9}{Add\+If\+Not\+Exsist$<$ T $>$}} (this List$<$ T $>$ list, T itm)
+\begin{DoxyCompactList}\small\item\em Return true mean this itm was addend into list. \end{DoxyCompactList}\item 
+static T\+[$\,$] \doxymbox{\hyperlink{class_unity_interface_1_1_collections_a33e302a74c3eed1b6390ed75422e560a}{Add\+As$<$ T $>$}} (this T\+[$\,$]\+ obj, params T\+[$\,$]\+ value)
+\item 
+static T\+[$\,$] \doxymbox{\hyperlink{class_unity_interface_1_1_collections_a0bf67ec803b299f39b59be270be68e3b}{Null\+Removal$<$ T $>$}} (this T\+[$\,$]\+ array)
+\item 
+static T\+[$\,$] \doxymbox{\hyperlink{class_unity_interface_1_1_collections_a31cd4b5e248efdbb3f8fe7e61f64db42}{Unique\+Check$<$ T $>$}} (this T\+[$\,$]\+ array)
+\item 
+static T \doxymbox{\hyperlink{class_unity_interface_1_1_collections_a7d4cead51824b768eea26e2c0c487fc8}{Random$<$ T $>$}} (this IEnumerable$<$ T $>$ selections)
+\item 
+static T \doxymbox{\hyperlink{class_unity_interface_1_1_collections_ae385c5f0a1c60c16e57681882c993ad3}{Random$<$ T $>$}} (params T\+[$\,$]\+ selections)
+\item 
+static T \doxymbox{\hyperlink{class_unity_interface_1_1_collections_a35bd0c6ece2ca29c4c00f6abe308e95a}{Random$<$ T $>$}} (this IEnumerable$<$ T $>$ selections, System.\+Random rng)
+\item 
+static T \doxymbox{\hyperlink{class_unity_interface_1_1_collections_ab9049faaac993a07fd7e84c9968b4ea3}{Random$<$ T $>$}} (System.\+Random rng, params T\+[$\,$]\+ selections)
+\item 
+static string\+[$\,$] \doxymbox{\hyperlink{class_unity_interface_1_1_collections_a347fa3710a4bdac9e823fb84124ba98d}{Safe\+Split}} (this string s, params char\+[$\,$]\+ seperator)
+\item 
+static bool \doxymbox{\hyperlink{class_unity_interface_1_1_collections_a30a2e15266607532bcd96070685ca977}{Check\+Directory}} (string path, bool generate\+Folder=false)
+\item 
+static T \doxymbox{\hyperlink{class_unity_interface_1_1_collections_a17d5557cdd8eb704a0244f24380d7e50}{Scroll\+Enum$<$ T $>$}} (this T enum\+Base, int direction, int custom\+Length\+Subtract=1)
+\begin{DoxyCompactList}\small\item\em Scroll the int in \+[0,Enum\+Length-\/1]. Enum must be int-\/based. \end{DoxyCompactList}\item 
+static Unity\+Event \doxymbox{\hyperlink{class_unity_interface_1_1_collections_ade6373c623787efebb4c4337eae1eaeb}{Convert\+To\+Unity\+Event}} (Action action)
+\item 
+static Unity\+Event \doxymbox{\hyperlink{class_unity_interface_1_1_collections_ab0e9e17f8fcda5e85032506ba60d868b}{Convert\+To\+Unity\+Event}} (this Unity\+Event unity\+Event, Action action)
+\begin{DoxyCompactList}\small\item\em Get used to it. \end{DoxyCompactList}\item 
+static Unity\+Event$<$ T $>$ \doxymbox{\hyperlink{class_unity_interface_1_1_collections_aed4ec1edcd9d0f3db03be108d9c64512}{Convert\+To\+Unity\+Event$<$ T $>$}} (this Unity\+Event unity\+Event, Action$<$ T $>$ action)
+\begin{DoxyCompactList}\small\item\em Get used to it. \end{DoxyCompactList}\item 
+static Unity\+Event$<$ T $>$ \doxymbox{\hyperlink{class_unity_interface_1_1_collections_a77547db9633bf00ec6bb9084f0bf60e2}{Convert\+To\+Unity\+Event$<$ T $>$}} (Action$<$ T $>$ action)
+\item 
+static List$<$ Method\+Info $>$ \doxymbox{\hyperlink{class_unity_interface_1_1_collections_a7b702a98d750b1dcb26c13de87e43cd2}{Get\+Method\+Infos\+With\+Parents}} (this Type type, Binding\+Flags flags=binding\+Flags\+For\+Parents)
+\item 
+static List$<$ string $>$ \doxymbox{\hyperlink{class_unity_interface_1_1_collections_a9ba82bdf39ed029414f8e866c2e47af9}{Get\+Methods\+With\+Parents}} (this Type type, Binding\+Flags flags=binding\+Flags\+For\+Parents)
+\item 
+static T \doxymbox{\hyperlink{class_unity_interface_1_1_collections_a4ecd14b02a2e2f0aea3e7dc7c4943215}{To\+Game\+Object$<$ T $>$}} (this Base\+Unity\+Plugin plugin, bool to\+Prefab=false, bool apply\+Values=false)
+\item 
+static Game\+Object \doxymbox{\hyperlink{class_unity_interface_1_1_collections_a3256001d418a9d64f154af20a1756d0d}{To\+Game\+Object}} (this Base\+Unity\+Plugin plugin, bool to\+Prefab, bool apply\+Values, params Type\+[$\,$]\+ types)
+\item 
+static C \doxymbox{\hyperlink{class_unity_interface_1_1_collections_ae10c779a17834c0ab592ad1f156aa026}{Rescript$<$ O, C $>$}} (O source)
+\begin{DoxyCompactList}\small\item\em The game\+Object with script(\+O) and replace it to script(\+C). \end{DoxyCompactList}\item 
+static C \doxymbox{\hyperlink{class_unity_interface_1_1_collections_a06d53d21ec798e24f5c1168acd5a1eda}{Rescript$<$ O, C $>$}} ()
+\begin{DoxyCompactList}\small\item\em Find the first game\+Object with script(\+O) and replace it to script(\+C). \end{DoxyCompactList}\item 
+static void \doxymbox{\hyperlink{class_unity_interface_1_1_collections_a9fd84609e81b172c466ff96027894a32}{Apply\+Values\+Component}} (this Component component, Base\+Unity\+Plugin plugin)
+\item 
+static void \doxymbox{\hyperlink{class_unity_interface_1_1_collections_a781e873c36c972ad6e8671521b4055a5}{Apply\+Values$<$ T $>$}} (this T component, Base\+Unity\+Plugin plugin)
+\item 
+static List$<$(Component, List$<$ string $>$)$>$ \doxymbox{\hyperlink{class_unity_interface_1_1_collections_a1559b2d9aeb7a3c1c86d50ec67fd1322}{Get\+References\+From\+Game\+Object}} (this Component referenced, Binding\+Flags flags=binding\+Flags\+For\+Merge)
+\item 
+static void \doxymbox{\hyperlink{class_unity_interface_1_1_collections_a0b5131c52e2d27fdbf7cac69c85989f0}{Set\+References\+From\+Game\+Object}} (this Component injection, List$<$(Component, List$<$ string $>$)$>$ data)
+\item 
+static void \doxymbox{\hyperlink{class_unity_interface_1_1_collections_a71358e16837b38cb22eb62c0f0d9fee8}{Start\+Get\+Froms}} (this Component component, Binding\+Flags flags=binding\+Flags\+For\+Merge)
+\item 
+static List$<$ Field\+Info $>$ \doxymbox{\hyperlink{class_unity_interface_1_1_collections_a4c5dfb29e300668edd03fcc41b518a40}{Get\+Field\+Infos\+With\+Parents}} (this Type type, Binding\+Flags flags=binding\+Flags\+For\+Parents)
+\item 
+static List$<$ string $>$ \doxymbox{\hyperlink{class_unity_interface_1_1_collections_ac38f3b5e9025eef0469138a2449ed3b3}{Get\+Fields\+With\+Parents}} (this Type type, Binding\+Flags flags=binding\+Flags\+For\+Parents)
+\item 
+static List$<$ Property\+Info $>$ \doxymbox{\hyperlink{class_unity_interface_1_1_collections_ab2aacb965ea45565c9a3dfd01ccc4851}{Get\+Properties\+Info\+With\+Parents}} (this Type type, Binding\+Flags flags=binding\+Flags\+For\+Parents)
+\item 
+static List$<$ string $>$ \doxymbox{\hyperlink{class_unity_interface_1_1_collections_ad25c7a4b0128697cf0bd5705bc4c1a17}{Get\+Properties\+With\+Parents}} (this Type type, Binding\+Flags flags=binding\+Flags\+For\+Parents)
+\item 
+static bool \doxymbox{\hyperlink{class_unity_interface_1_1_collections_ab13de88c659d02055c419b4ba738cd8a}{Contains\+Interface}} (this Type interface\+Type, Type type\+Base)
+\item 
+static Type \doxymbox{\hyperlink{class_unity_interface_1_1_collections_a9e4381125c67c767610e4ca03f641274}{Get\+Const\+Genericed\+Type}} (this Type type\+Base, Type interface\+Type)
+\item 
+static bool \doxymbox{\hyperlink{class_unity_interface_1_1_collections_aa763b05767fa4f552c4ab2f26af27616}{Contains\+Attribute$<$ T $>$}} (this Type type\+Base)
+\item 
+static T \doxymbox{\hyperlink{class_unity_interface_1_1_collections_a2ec86697745ea41dcbaa1b1499fb2fb7}{Get\+Attribute$<$ T $>$}} (this Type type\+Base)
+\item 
+static object\+[$\,$] \doxymbox{\hyperlink{class_unity_interface_1_1_collections_a566f945279ad91a8cf6a0f861ea742ef}{Get\+Attributes$<$ T $>$}} (this Type type\+Base)
+\item 
+static bool \doxymbox{\hyperlink{class_unity_interface_1_1_collections_aacda74964e03145a3425af8e6e91fc49}{Contains\+Field}} (this object obj, string name, Binding\+Flags flags=binding\+Flags\+Default)
+\item 
+static object \doxymbox{\hyperlink{class_unity_interface_1_1_collections_a2a0354ef35bc2d5899236e92bab74465}{Get\+Value}} (this object obj, string name, Binding\+Flags flags=binding\+Flags\+Default)
+\item 
+static T \doxymbox{\hyperlink{class_unity_interface_1_1_collections_a7d9008354cad7eb6d62418d4188e441e}{Get\+Value$<$ T $>$}} (this object obj, string name, Binding\+Flags flags=binding\+Flags\+Default)
+\item 
+static void \doxymbox{\hyperlink{class_unity_interface_1_1_collections_a080b461f84bf326172be6214fbfddfe9}{Set\+Value$<$ T $>$}} (this object obj, string name, T value, Binding\+Flags flags=binding\+Flags\+Default)
+\item 
+static void \doxymbox{\hyperlink{class_unity_interface_1_1_collections_ac3f439da3b9e5d58b59c07ef73b8e900}{Merge}} (this object parent, object target, Binding\+Flags flags=binding\+Flags\+For\+Merge)
+\begin{DoxyCompactList}\small\item\em Merge all vars from parent to target. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+static Harmony \doxymbox{\hyperlink{class_unity_interface_1_1_collections_a7324c5bfb075da648bad83a275260255}{Harmony}}\hspace{0.3cm}{\ttfamily  \+[get]}
+\begin{DoxyCompactList}\small\item\em Use patches flexibly! \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Useful Stuffs. 
+
+Definition at line \doxymbox{\hyperlink{_c_8_ants_8cs_source_l00013}{13}} of file \doxymbox{\hyperlink{_c_8_ants_8cs_source}{C.\+Ants.\+cs}}.
+
+
+
+\label{class_unity_interface_1_1_collections_doc-func-members}
+\Hypertarget{class_unity_interface_1_1_collections_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_unity_interface_1_1_collections_a33e302a74c3eed1b6390ed75422e560a}\index{UnityInterface.Collections@{UnityInterface.Collections}!AddAs$<$ T $>$@{AddAs$<$ T $>$}}
+\index{AddAs$<$ T $>$@{AddAs$<$ T $>$}!UnityInterface.Collections@{UnityInterface.Collections}}
+\doxysubsubsection{\texorpdfstring{AddAs$<$ T $>$()}{AddAs< T >()}}
+{\footnotesize\ttfamily \label{class_unity_interface_1_1_collections_a33e302a74c3eed1b6390ed75422e560a} 
+T\+[$\,$]\+ Unity\+Interface.\+Collections.\+Add\+As$<$ T $>$ (\begin{DoxyParamCaption}\item[{this T\+[$\,$]}]{obj}{, }\item[{params T\+[$\,$]}]{value}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \doxymbox{\hyperlink{_c_8_ants_8cs_source_l00032}{32}} of file \doxymbox{\hyperlink{_c_8_ants_8cs_source}{C.\+Ants.\+cs}}.
+
+\Hypertarget{class_unity_interface_1_1_collections_a1be5d02f88d5bce366dbbfaf1f90f7b9}\index{UnityInterface.Collections@{UnityInterface.Collections}!AddIfNotExsist$<$ T $>$@{AddIfNotExsist$<$ T $>$}}
+\index{AddIfNotExsist$<$ T $>$@{AddIfNotExsist$<$ T $>$}!UnityInterface.Collections@{UnityInterface.Collections}}
+\doxysubsubsection{\texorpdfstring{AddIfNotExsist$<$ T $>$()}{AddIfNotExsist< T >()}}
+{\footnotesize\ttfamily \label{class_unity_interface_1_1_collections_a1be5d02f88d5bce366dbbfaf1f90f7b9} 
+bool Unity\+Interface.\+Collections.\+Add\+If\+Not\+Exsist$<$ T $>$ (\begin{DoxyParamCaption}\item[{this List$<$ T $>$}]{list}{, }\item[{T}]{itm}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Return true mean this itm was addend into list. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em list} & \\
+\hline
+{\em itm} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line \doxymbox{\hyperlink{_c_8_ants_8cs_source_l00022}{22}} of file \doxymbox{\hyperlink{_c_8_ants_8cs_source}{C.\+Ants.\+cs}}.
+
+\Hypertarget{class_unity_interface_1_1_collections_a781e873c36c972ad6e8671521b4055a5}\index{UnityInterface.Collections@{UnityInterface.Collections}!ApplyValues$<$ T $>$@{ApplyValues$<$ T $>$}}
+\index{ApplyValues$<$ T $>$@{ApplyValues$<$ T $>$}!UnityInterface.Collections@{UnityInterface.Collections}}
+\doxysubsubsection{\texorpdfstring{ApplyValues$<$ T $>$()}{ApplyValues< T >()}}
+{\footnotesize\ttfamily \label{class_unity_interface_1_1_collections_a781e873c36c972ad6e8671521b4055a5} 
+void Unity\+Interface.\+Collections.\+Apply\+Values$<$ T $>$ (\begin{DoxyParamCaption}\item[{this T}]{component}{, }\item[{Base\+Unity\+Plugin}]{plugin}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\begin{Desc}
+\item[Type Constraints]\begin{description}
+\item[{\em T} : {\em Component}]\end{description}
+\end{Desc}
+
+
+Definition at line \doxymbox{\hyperlink{_c_8_game_objects_8cs_source_l00083}{83}} of file \doxymbox{\hyperlink{_c_8_game_objects_8cs_source}{C.\+Game\+Objects.\+cs}}.
+
+\Hypertarget{class_unity_interface_1_1_collections_a9fd84609e81b172c466ff96027894a32}\index{UnityInterface.Collections@{UnityInterface.Collections}!ApplyValuesComponent@{ApplyValuesComponent}}
+\index{ApplyValuesComponent@{ApplyValuesComponent}!UnityInterface.Collections@{UnityInterface.Collections}}
+\doxysubsubsection{\texorpdfstring{ApplyValuesComponent()}{ApplyValuesComponent()}}
+{\footnotesize\ttfamily \label{class_unity_interface_1_1_collections_a9fd84609e81b172c466ff96027894a32} 
+void Unity\+Interface.\+Collections.\+Apply\+Values\+Component (\begin{DoxyParamCaption}\item[{this Component}]{component}{, }\item[{Base\+Unity\+Plugin}]{plugin}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \doxymbox{\hyperlink{_c_8_game_objects_8cs_source_l00073}{73}} of file \doxymbox{\hyperlink{_c_8_game_objects_8cs_source}{C.\+Game\+Objects.\+cs}}.
+
+\Hypertarget{class_unity_interface_1_1_collections_a30a2e15266607532bcd96070685ca977}\index{UnityInterface.Collections@{UnityInterface.Collections}!CheckDirectory@{CheckDirectory}}
+\index{CheckDirectory@{CheckDirectory}!UnityInterface.Collections@{UnityInterface.Collections}}
+\doxysubsubsection{\texorpdfstring{CheckDirectory()}{CheckDirectory()}}
+{\footnotesize\ttfamily \label{class_unity_interface_1_1_collections_a30a2e15266607532bcd96070685ca977} 
+bool Unity\+Interface.\+Collections.\+Check\+Directory (\begin{DoxyParamCaption}\item[{string}]{path}{, }\item[{bool}]{generate\+Folder}{ = {\ttfamily false}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \doxymbox{\hyperlink{_c_8_ants_8cs_source_l00059}{59}} of file \doxymbox{\hyperlink{_c_8_ants_8cs_source}{C.\+Ants.\+cs}}.
+
+\Hypertarget{class_unity_interface_1_1_collections_aa763b05767fa4f552c4ab2f26af27616}\index{UnityInterface.Collections@{UnityInterface.Collections}!ContainsAttribute$<$ T $>$@{ContainsAttribute$<$ T $>$}}
+\index{ContainsAttribute$<$ T $>$@{ContainsAttribute$<$ T $>$}!UnityInterface.Collections@{UnityInterface.Collections}}
+\doxysubsubsection{\texorpdfstring{ContainsAttribute$<$ T $>$()}{ContainsAttribute< T >()}}
+{\footnotesize\ttfamily \label{class_unity_interface_1_1_collections_aa763b05767fa4f552c4ab2f26af27616} 
+bool Unity\+Interface.\+Collections.\+Contains\+Attribute$<$ T $>$ (\begin{DoxyParamCaption}\item[{this Type}]{type\+Base}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\begin{Desc}
+\item[Type Constraints]\begin{description}
+\item[{\em T} : {\em Attribute}]\end{description}
+\end{Desc}
+
+
+Definition at line \doxymbox{\hyperlink{_c_8_reflections_8cs_source_l00053}{53}} of file \doxymbox{\hyperlink{_c_8_reflections_8cs_source}{C.\+Reflections.\+cs}}.
+
+\Hypertarget{class_unity_interface_1_1_collections_aacda74964e03145a3425af8e6e91fc49}\index{UnityInterface.Collections@{UnityInterface.Collections}!ContainsField@{ContainsField}}
+\index{ContainsField@{ContainsField}!UnityInterface.Collections@{UnityInterface.Collections}}
+\doxysubsubsection{\texorpdfstring{ContainsField()}{ContainsField()}}
+{\footnotesize\ttfamily \label{class_unity_interface_1_1_collections_aacda74964e03145a3425af8e6e91fc49} 
+bool Unity\+Interface.\+Collections.\+Contains\+Field (\begin{DoxyParamCaption}\item[{this object}]{obj}{, }\item[{string}]{name}{, }\item[{Binding\+Flags}]{flags}{ = {\ttfamily bindingFlagsDefault}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \doxymbox{\hyperlink{_c_8_variables_management_8cs_source_l00010}{10}} of file \doxymbox{\hyperlink{_c_8_variables_management_8cs_source}{C.\+Variables\+Management.\+cs}}.
+
+\Hypertarget{class_unity_interface_1_1_collections_ab13de88c659d02055c419b4ba738cd8a}\index{UnityInterface.Collections@{UnityInterface.Collections}!ContainsInterface@{ContainsInterface}}
+\index{ContainsInterface@{ContainsInterface}!UnityInterface.Collections@{UnityInterface.Collections}}
+\doxysubsubsection{\texorpdfstring{ContainsInterface()}{ContainsInterface()}}
+{\footnotesize\ttfamily \label{class_unity_interface_1_1_collections_ab13de88c659d02055c419b4ba738cd8a} 
+bool Unity\+Interface.\+Collections.\+Contains\+Interface (\begin{DoxyParamCaption}\item[{this Type}]{interface\+Type}{, }\item[{Type}]{type\+Base}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \doxymbox{\hyperlink{_c_8_reflections_8cs_source_l00050}{50}} of file \doxymbox{\hyperlink{_c_8_reflections_8cs_source}{C.\+Reflections.\+cs}}.
+
+\Hypertarget{class_unity_interface_1_1_collections_ade6373c623787efebb4c4337eae1eaeb}\index{UnityInterface.Collections@{UnityInterface.Collections}!ConvertToUnityEvent@{ConvertToUnityEvent}}
+\index{ConvertToUnityEvent@{ConvertToUnityEvent}!UnityInterface.Collections@{UnityInterface.Collections}}
+\doxysubsubsection{\texorpdfstring{ConvertToUnityEvent()}{ConvertToUnityEvent()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_unity_interface_1_1_collections_ade6373c623787efebb4c4337eae1eaeb} 
+Unity\+Event Unity\+Interface.\+Collections.\+Convert\+To\+Unity\+Event (\begin{DoxyParamCaption}\item[{Action}]{action}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \doxymbox{\hyperlink{_c_8_ants_8cs_source_l00096}{96}} of file \doxymbox{\hyperlink{_c_8_ants_8cs_source}{C.\+Ants.\+cs}}.
+
+\Hypertarget{class_unity_interface_1_1_collections_ab0e9e17f8fcda5e85032506ba60d868b}\index{UnityInterface.Collections@{UnityInterface.Collections}!ConvertToUnityEvent@{ConvertToUnityEvent}}
+\index{ConvertToUnityEvent@{ConvertToUnityEvent}!UnityInterface.Collections@{UnityInterface.Collections}}
+\doxysubsubsection{\texorpdfstring{ConvertToUnityEvent()}{ConvertToUnityEvent()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_unity_interface_1_1_collections_ab0e9e17f8fcda5e85032506ba60d868b} 
+Unity\+Event Unity\+Interface.\+Collections.\+Convert\+To\+Unity\+Event (\begin{DoxyParamCaption}\item[{this Unity\+Event}]{unity\+Event}{, }\item[{Action}]{action}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Get used to it. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em unity\+Event} & \\
+\hline
+{\em action} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line \doxymbox{\hyperlink{_c_8_ants_8cs_source_l00109}{109}} of file \doxymbox{\hyperlink{_c_8_ants_8cs_source}{C.\+Ants.\+cs}}.
+
+\Hypertarget{class_unity_interface_1_1_collections_a77547db9633bf00ec6bb9084f0bf60e2}\index{UnityInterface.Collections@{UnityInterface.Collections}!ConvertToUnityEvent$<$ T $>$@{ConvertToUnityEvent$<$ T $>$}}
+\index{ConvertToUnityEvent$<$ T $>$@{ConvertToUnityEvent$<$ T $>$}!UnityInterface.Collections@{UnityInterface.Collections}}
+\doxysubsubsection{\texorpdfstring{ConvertToUnityEvent$<$ T $>$()}{ConvertToUnityEvent< T >()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_unity_interface_1_1_collections_a77547db9633bf00ec6bb9084f0bf60e2} 
+Unity\+Event$<$ T $>$ \doxymbox{\hyperlink{class_unity_interface_1_1_collections_ab0e9e17f8fcda5e85032506ba60d868b}{Unity\+Interface.\+Collections.\+Convert\+To\+Unity\+Event}}$<$ T $>$ (\begin{DoxyParamCaption}\item[{Action$<$ T $>$}]{action}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \doxymbox{\hyperlink{_c_8_ants_8cs_source_l00129}{129}} of file \doxymbox{\hyperlink{_c_8_ants_8cs_source}{C.\+Ants.\+cs}}.
+
+\Hypertarget{class_unity_interface_1_1_collections_aed4ec1edcd9d0f3db03be108d9c64512}\index{UnityInterface.Collections@{UnityInterface.Collections}!ConvertToUnityEvent$<$ T $>$@{ConvertToUnityEvent$<$ T $>$}}
+\index{ConvertToUnityEvent$<$ T $>$@{ConvertToUnityEvent$<$ T $>$}!UnityInterface.Collections@{UnityInterface.Collections}}
+\doxysubsubsection{\texorpdfstring{ConvertToUnityEvent$<$ T $>$()}{ConvertToUnityEvent< T >()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_unity_interface_1_1_collections_aed4ec1edcd9d0f3db03be108d9c64512} 
+Unity\+Event$<$ T $>$ \doxymbox{\hyperlink{class_unity_interface_1_1_collections_ab0e9e17f8fcda5e85032506ba60d868b}{Unity\+Interface.\+Collections.\+Convert\+To\+Unity\+Event}}$<$ T $>$ (\begin{DoxyParamCaption}\item[{this Unity\+Event}]{unity\+Event}{, }\item[{Action$<$ T $>$}]{action}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Get used to it. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em unity\+Event} & \\
+\hline
+{\em action} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line \doxymbox{\hyperlink{_c_8_ants_8cs_source_l00122}{122}} of file \doxymbox{\hyperlink{_c_8_ants_8cs_source}{C.\+Ants.\+cs}}.
+
+\Hypertarget{class_unity_interface_1_1_collections_a2ec86697745ea41dcbaa1b1499fb2fb7}\index{UnityInterface.Collections@{UnityInterface.Collections}!GetAttribute$<$ T $>$@{GetAttribute$<$ T $>$}}
+\index{GetAttribute$<$ T $>$@{GetAttribute$<$ T $>$}!UnityInterface.Collections@{UnityInterface.Collections}}
+\doxysubsubsection{\texorpdfstring{GetAttribute$<$ T $>$()}{GetAttribute< T >()}}
+{\footnotesize\ttfamily \label{class_unity_interface_1_1_collections_a2ec86697745ea41dcbaa1b1499fb2fb7} 
+T Unity\+Interface.\+Collections.\+Get\+Attribute$<$ T $>$ (\begin{DoxyParamCaption}\item[{this Type}]{type\+Base}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\begin{Desc}
+\item[Type Constraints]\begin{description}
+\item[{\em T} : {\em Attribute}]\end{description}
+\end{Desc}
+
+
+Definition at line \doxymbox{\hyperlink{_c_8_reflections_8cs_source_l00054}{54}} of file \doxymbox{\hyperlink{_c_8_reflections_8cs_source}{C.\+Reflections.\+cs}}.
+
+\Hypertarget{class_unity_interface_1_1_collections_a566f945279ad91a8cf6a0f861ea742ef}\index{UnityInterface.Collections@{UnityInterface.Collections}!GetAttributes$<$ T $>$@{GetAttributes$<$ T $>$}}
+\index{GetAttributes$<$ T $>$@{GetAttributes$<$ T $>$}!UnityInterface.Collections@{UnityInterface.Collections}}
+\doxysubsubsection{\texorpdfstring{GetAttributes$<$ T $>$()}{GetAttributes< T >()}}
+{\footnotesize\ttfamily \label{class_unity_interface_1_1_collections_a566f945279ad91a8cf6a0f861ea742ef} 
+object\+[$\,$]\+ Unity\+Interface.\+Collections.\+Get\+Attributes$<$ T $>$ (\begin{DoxyParamCaption}\item[{this Type}]{type\+Base}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\begin{Desc}
+\item[Type Constraints]\begin{description}
+\item[{\em T} : {\em Attribute}]\end{description}
+\end{Desc}
+
+
+Definition at line \doxymbox{\hyperlink{_c_8_reflections_8cs_source_l00055}{55}} of file \doxymbox{\hyperlink{_c_8_reflections_8cs_source}{C.\+Reflections.\+cs}}.
+
+\Hypertarget{class_unity_interface_1_1_collections_a9e4381125c67c767610e4ca03f641274}\index{UnityInterface.Collections@{UnityInterface.Collections}!GetConstGenericedType@{GetConstGenericedType}}
+\index{GetConstGenericedType@{GetConstGenericedType}!UnityInterface.Collections@{UnityInterface.Collections}}
+\doxysubsubsection{\texorpdfstring{GetConstGenericedType()}{GetConstGenericedType()}}
+{\footnotesize\ttfamily \label{class_unity_interface_1_1_collections_a9e4381125c67c767610e4ca03f641274} 
+Type Unity\+Interface.\+Collections.\+Get\+Const\+Genericed\+Type (\begin{DoxyParamCaption}\item[{this Type}]{type\+Base}{, }\item[{Type}]{interface\+Type}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \doxymbox{\hyperlink{_c_8_reflections_8cs_source_l00051}{51}} of file \doxymbox{\hyperlink{_c_8_reflections_8cs_source}{C.\+Reflections.\+cs}}.
+
+\Hypertarget{class_unity_interface_1_1_collections_a4c5dfb29e300668edd03fcc41b518a40}\index{UnityInterface.Collections@{UnityInterface.Collections}!GetFieldInfosWithParents@{GetFieldInfosWithParents}}
+\index{GetFieldInfosWithParents@{GetFieldInfosWithParents}!UnityInterface.Collections@{UnityInterface.Collections}}
+\doxysubsubsection{\texorpdfstring{GetFieldInfosWithParents()}{GetFieldInfosWithParents()}}
+{\footnotesize\ttfamily \label{class_unity_interface_1_1_collections_a4c5dfb29e300668edd03fcc41b518a40} 
+List$<$ Field\+Info $>$ Unity\+Interface.\+Collections.\+Get\+Field\+Infos\+With\+Parents (\begin{DoxyParamCaption}\item[{this Type}]{type}{, }\item[{Binding\+Flags}]{flags}{ = {\ttfamily bindingFlagsForParents}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \doxymbox{\hyperlink{_c_8_reflections_8cs_source_l00016}{16}} of file \doxymbox{\hyperlink{_c_8_reflections_8cs_source}{C.\+Reflections.\+cs}}.
+
+\Hypertarget{class_unity_interface_1_1_collections_ac38f3b5e9025eef0469138a2449ed3b3}\index{UnityInterface.Collections@{UnityInterface.Collections}!GetFieldsWithParents@{GetFieldsWithParents}}
+\index{GetFieldsWithParents@{GetFieldsWithParents}!UnityInterface.Collections@{UnityInterface.Collections}}
+\doxysubsubsection{\texorpdfstring{GetFieldsWithParents()}{GetFieldsWithParents()}}
+{\footnotesize\ttfamily \label{class_unity_interface_1_1_collections_ac38f3b5e9025eef0469138a2449ed3b3} 
+List$<$ string $>$ Unity\+Interface.\+Collections.\+Get\+Fields\+With\+Parents (\begin{DoxyParamCaption}\item[{this Type}]{type}{, }\item[{Binding\+Flags}]{flags}{ = {\ttfamily bindingFlagsForParents}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \doxymbox{\hyperlink{_c_8_reflections_8cs_source_l00031}{31}} of file \doxymbox{\hyperlink{_c_8_reflections_8cs_source}{C.\+Reflections.\+cs}}.
+
+\Hypertarget{class_unity_interface_1_1_collections_a7b702a98d750b1dcb26c13de87e43cd2}\index{UnityInterface.Collections@{UnityInterface.Collections}!GetMethodInfosWithParents@{GetMethodInfosWithParents}}
+\index{GetMethodInfosWithParents@{GetMethodInfosWithParents}!UnityInterface.Collections@{UnityInterface.Collections}}
+\doxysubsubsection{\texorpdfstring{GetMethodInfosWithParents()}{GetMethodInfosWithParents()}}
+{\footnotesize\ttfamily \label{class_unity_interface_1_1_collections_a7b702a98d750b1dcb26c13de87e43cd2} 
+List$<$ Method\+Info $>$ Unity\+Interface.\+Collections.\+Get\+Method\+Infos\+With\+Parents (\begin{DoxyParamCaption}\item[{this Type}]{type}{, }\item[{Binding\+Flags}]{flags}{ = {\ttfamily bindingFlagsForParents}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \doxymbox{\hyperlink{_c_8_codes_8cs_source_l00017}{17}} of file \doxymbox{\hyperlink{_c_8_codes_8cs_source}{C.\+Codes.\+cs}}.
+
+\Hypertarget{class_unity_interface_1_1_collections_a9ba82bdf39ed029414f8e866c2e47af9}\index{UnityInterface.Collections@{UnityInterface.Collections}!GetMethodsWithParents@{GetMethodsWithParents}}
+\index{GetMethodsWithParents@{GetMethodsWithParents}!UnityInterface.Collections@{UnityInterface.Collections}}
+\doxysubsubsection{\texorpdfstring{GetMethodsWithParents()}{GetMethodsWithParents()}}
+{\footnotesize\ttfamily \label{class_unity_interface_1_1_collections_a9ba82bdf39ed029414f8e866c2e47af9} 
+List$<$ string $>$ Unity\+Interface.\+Collections.\+Get\+Methods\+With\+Parents (\begin{DoxyParamCaption}\item[{this Type}]{type}{, }\item[{Binding\+Flags}]{flags}{ = {\ttfamily bindingFlagsForParents}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \doxymbox{\hyperlink{_c_8_codes_8cs_source_l00032}{32}} of file \doxymbox{\hyperlink{_c_8_codes_8cs_source}{C.\+Codes.\+cs}}.
+
+\Hypertarget{class_unity_interface_1_1_collections_ab2aacb965ea45565c9a3dfd01ccc4851}\index{UnityInterface.Collections@{UnityInterface.Collections}!GetPropertiesInfoWithParents@{GetPropertiesInfoWithParents}}
+\index{GetPropertiesInfoWithParents@{GetPropertiesInfoWithParents}!UnityInterface.Collections@{UnityInterface.Collections}}
+\doxysubsubsection{\texorpdfstring{GetPropertiesInfoWithParents()}{GetPropertiesInfoWithParents()}}
+{\footnotesize\ttfamily \label{class_unity_interface_1_1_collections_ab2aacb965ea45565c9a3dfd01ccc4851} 
+List$<$ Property\+Info $>$ Unity\+Interface.\+Collections.\+Get\+Properties\+Info\+With\+Parents (\begin{DoxyParamCaption}\item[{this Type}]{type}{, }\item[{Binding\+Flags}]{flags}{ = {\ttfamily bindingFlagsForParents}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \doxymbox{\hyperlink{_c_8_reflections_8cs_source_l00033}{33}} of file \doxymbox{\hyperlink{_c_8_reflections_8cs_source}{C.\+Reflections.\+cs}}.
+
+\Hypertarget{class_unity_interface_1_1_collections_ad25c7a4b0128697cf0bd5705bc4c1a17}\index{UnityInterface.Collections@{UnityInterface.Collections}!GetPropertiesWithParents@{GetPropertiesWithParents}}
+\index{GetPropertiesWithParents@{GetPropertiesWithParents}!UnityInterface.Collections@{UnityInterface.Collections}}
+\doxysubsubsection{\texorpdfstring{GetPropertiesWithParents()}{GetPropertiesWithParents()}}
+{\footnotesize\ttfamily \label{class_unity_interface_1_1_collections_ad25c7a4b0128697cf0bd5705bc4c1a17} 
+List$<$ string $>$ Unity\+Interface.\+Collections.\+Get\+Properties\+With\+Parents (\begin{DoxyParamCaption}\item[{this Type}]{type}{, }\item[{Binding\+Flags}]{flags}{ = {\ttfamily bindingFlagsForParents}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \doxymbox{\hyperlink{_c_8_reflections_8cs_source_l00048}{48}} of file \doxymbox{\hyperlink{_c_8_reflections_8cs_source}{C.\+Reflections.\+cs}}.
+
+\Hypertarget{class_unity_interface_1_1_collections_a1559b2d9aeb7a3c1c86d50ec67fd1322}\index{UnityInterface.Collections@{UnityInterface.Collections}!GetReferencesFromGameObject@{GetReferencesFromGameObject}}
+\index{GetReferencesFromGameObject@{GetReferencesFromGameObject}!UnityInterface.Collections@{UnityInterface.Collections}}
+\doxysubsubsection{\texorpdfstring{GetReferencesFromGameObject()}{GetReferencesFromGameObject()}}
+{\footnotesize\ttfamily \label{class_unity_interface_1_1_collections_a1559b2d9aeb7a3c1c86d50ec67fd1322} 
+List$<$(Component, List$<$ string $>$)$>$ Unity\+Interface.\+Collections.\+Get\+References\+From\+Game\+Object (\begin{DoxyParamCaption}\item[{this Component}]{referenced}{, }\item[{Binding\+Flags}]{flags}{ = {\ttfamily bindingFlagsForMerge}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \doxymbox{\hyperlink{_c_8_game_objects_8cs_source_l00085}{85}} of file \doxymbox{\hyperlink{_c_8_game_objects_8cs_source}{C.\+Game\+Objects.\+cs}}.
+
+\Hypertarget{class_unity_interface_1_1_collections_a2a0354ef35bc2d5899236e92bab74465}\index{UnityInterface.Collections@{UnityInterface.Collections}!GetValue@{GetValue}}
+\index{GetValue@{GetValue}!UnityInterface.Collections@{UnityInterface.Collections}}
+\doxysubsubsection{\texorpdfstring{GetValue()}{GetValue()}}
+{\footnotesize\ttfamily \label{class_unity_interface_1_1_collections_a2a0354ef35bc2d5899236e92bab74465} 
+object Unity\+Interface.\+Collections.\+Get\+Value (\begin{DoxyParamCaption}\item[{this object}]{obj}{, }\item[{string}]{name}{, }\item[{Binding\+Flags}]{flags}{ = {\ttfamily bindingFlagsDefault}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \doxymbox{\hyperlink{_c_8_variables_management_8cs_source_l00012}{12}} of file \doxymbox{\hyperlink{_c_8_variables_management_8cs_source}{C.\+Variables\+Management.\+cs}}.
+
+\Hypertarget{class_unity_interface_1_1_collections_a7d9008354cad7eb6d62418d4188e441e}\index{UnityInterface.Collections@{UnityInterface.Collections}!GetValue$<$ T $>$@{GetValue$<$ T $>$}}
+\index{GetValue$<$ T $>$@{GetValue$<$ T $>$}!UnityInterface.Collections@{UnityInterface.Collections}}
+\doxysubsubsection{\texorpdfstring{GetValue$<$ T $>$()}{GetValue< T >()}}
+{\footnotesize\ttfamily \label{class_unity_interface_1_1_collections_a7d9008354cad7eb6d62418d4188e441e} 
+T Unity\+Interface.\+Collections.\+Get\+Value$<$ T $>$ (\begin{DoxyParamCaption}\item[{this object}]{obj}{, }\item[{string}]{name}{, }\item[{Binding\+Flags}]{flags}{ = {\ttfamily bindingFlagsDefault}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \doxymbox{\hyperlink{_c_8_variables_management_8cs_source_l00024}{24}} of file \doxymbox{\hyperlink{_c_8_variables_management_8cs_source}{C.\+Variables\+Management.\+cs}}.
+
+\Hypertarget{class_unity_interface_1_1_collections_ac3f439da3b9e5d58b59c07ef73b8e900}\index{UnityInterface.Collections@{UnityInterface.Collections}!Merge@{Merge}}
+\index{Merge@{Merge}!UnityInterface.Collections@{UnityInterface.Collections}}
+\doxysubsubsection{\texorpdfstring{Merge()}{Merge()}}
+{\footnotesize\ttfamily \label{class_unity_interface_1_1_collections_ac3f439da3b9e5d58b59c07ef73b8e900} 
+void Unity\+Interface.\+Collections.\+Merge (\begin{DoxyParamCaption}\item[{this object}]{parent}{, }\item[{object}]{target}{, }\item[{Binding\+Flags}]{flags}{ = {\ttfamily bindingFlagsForMerge}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Merge all vars from parent to target. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em P} & \\
+\hline
+{\em T} & \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em parent} & Merge Sample\\
+\hline
+{\em target} & Merged\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \doxymbox{\hyperlink{_c_8_variables_management_8cs_source_l00047}{47}} of file \doxymbox{\hyperlink{_c_8_variables_management_8cs_source}{C.\+Variables\+Management.\+cs}}.
+
+\Hypertarget{class_unity_interface_1_1_collections_a0bf67ec803b299f39b59be270be68e3b}\index{UnityInterface.Collections@{UnityInterface.Collections}!NullRemoval$<$ T $>$@{NullRemoval$<$ T $>$}}
+\index{NullRemoval$<$ T $>$@{NullRemoval$<$ T $>$}!UnityInterface.Collections@{UnityInterface.Collections}}
+\doxysubsubsection{\texorpdfstring{NullRemoval$<$ T $>$()}{NullRemoval< T >()}}
+{\footnotesize\ttfamily \label{class_unity_interface_1_1_collections_a0bf67ec803b299f39b59be270be68e3b} 
+T\+[$\,$]\+ Unity\+Interface.\+Collections.\+Null\+Removal$<$ T $>$ (\begin{DoxyParamCaption}\item[{this T\+[$\,$]}]{array}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\begin{Desc}
+\item[Type Constraints]\begin{description}
+\item[{\em T} : {\em class}]\end{description}
+\end{Desc}
+
+
+Definition at line \doxymbox{\hyperlink{_c_8_ants_8cs_source_l00038}{38}} of file \doxymbox{\hyperlink{_c_8_ants_8cs_source}{C.\+Ants.\+cs}}.
+
+\Hypertarget{class_unity_interface_1_1_collections_ae385c5f0a1c60c16e57681882c993ad3}\index{UnityInterface.Collections@{UnityInterface.Collections}!Random$<$ T $>$@{Random$<$ T $>$}}
+\index{Random$<$ T $>$@{Random$<$ T $>$}!UnityInterface.Collections@{UnityInterface.Collections}}
+\doxysubsubsection{\texorpdfstring{Random$<$ T $>$()}{Random< T >()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily \label{class_unity_interface_1_1_collections_ae385c5f0a1c60c16e57681882c993ad3} 
+T Unity\+Interface.\+Collections.\+Random$<$ T $>$ (\begin{DoxyParamCaption}\item[{params T\+[$\,$]}]{selections}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \doxymbox{\hyperlink{_c_8_ants_8cs_source_l00053}{53}} of file \doxymbox{\hyperlink{_c_8_ants_8cs_source}{C.\+Ants.\+cs}}.
+
+\Hypertarget{class_unity_interface_1_1_collections_ab9049faaac993a07fd7e84c9968b4ea3}\index{UnityInterface.Collections@{UnityInterface.Collections}!Random$<$ T $>$@{Random$<$ T $>$}}
+\index{Random$<$ T $>$@{Random$<$ T $>$}!UnityInterface.Collections@{UnityInterface.Collections}}
+\doxysubsubsection{\texorpdfstring{Random$<$ T $>$()}{Random< T >()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily \label{class_unity_interface_1_1_collections_ab9049faaac993a07fd7e84c9968b4ea3} 
+T Unity\+Interface.\+Collections.\+Random$<$ T $>$ (\begin{DoxyParamCaption}\item[{System.\+Random}]{rng}{, }\item[{params T\+[$\,$]}]{selections}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \doxymbox{\hyperlink{_c_8_ants_8cs_source_l00055}{55}} of file \doxymbox{\hyperlink{_c_8_ants_8cs_source}{C.\+Ants.\+cs}}.
+
+\Hypertarget{class_unity_interface_1_1_collections_a7d4cead51824b768eea26e2c0c487fc8}\index{UnityInterface.Collections@{UnityInterface.Collections}!Random$<$ T $>$@{Random$<$ T $>$}}
+\index{Random$<$ T $>$@{Random$<$ T $>$}!UnityInterface.Collections@{UnityInterface.Collections}}
+\doxysubsubsection{\texorpdfstring{Random$<$ T $>$()}{Random< T >()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily \label{class_unity_interface_1_1_collections_a7d4cead51824b768eea26e2c0c487fc8} 
+T Unity\+Interface.\+Collections.\+Random$<$ T $>$ (\begin{DoxyParamCaption}\item[{this IEnumerable$<$ T $>$}]{selections}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \doxymbox{\hyperlink{_c_8_ants_8cs_source_l00052}{52}} of file \doxymbox{\hyperlink{_c_8_ants_8cs_source}{C.\+Ants.\+cs}}.
+
+\Hypertarget{class_unity_interface_1_1_collections_a35bd0c6ece2ca29c4c00f6abe308e95a}\index{UnityInterface.Collections@{UnityInterface.Collections}!Random$<$ T $>$@{Random$<$ T $>$}}
+\index{Random$<$ T $>$@{Random$<$ T $>$}!UnityInterface.Collections@{UnityInterface.Collections}}
+\doxysubsubsection{\texorpdfstring{Random$<$ T $>$()}{Random< T >()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily \label{class_unity_interface_1_1_collections_a35bd0c6ece2ca29c4c00f6abe308e95a} 
+T Unity\+Interface.\+Collections.\+Random$<$ T $>$ (\begin{DoxyParamCaption}\item[{this IEnumerable$<$ T $>$}]{selections}{, }\item[{System.\+Random}]{rng}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \doxymbox{\hyperlink{_c_8_ants_8cs_source_l00054}{54}} of file \doxymbox{\hyperlink{_c_8_ants_8cs_source}{C.\+Ants.\+cs}}.
+
+\Hypertarget{class_unity_interface_1_1_collections_a06d53d21ec798e24f5c1168acd5a1eda}\index{UnityInterface.Collections@{UnityInterface.Collections}!Rescript$<$ O, C $>$@{Rescript$<$ O, C $>$}}
+\index{Rescript$<$ O, C $>$@{Rescript$<$ O, C $>$}!UnityInterface.Collections@{UnityInterface.Collections}}
+\doxysubsubsection{\texorpdfstring{Rescript$<$ O, C $>$()}{Rescript< O, C >()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_unity_interface_1_1_collections_a06d53d21ec798e24f5c1168acd5a1eda} 
+C Unity\+Interface.\+Collections.\+Rescript$<$ O, C $>$ (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Find the first game\+Object with script(\+O) and replace it to script(\+C). 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em O} & Script(\+O) type\\
+\hline
+{\em C} & Script(\+C) type\\
+\hline
+\end{DoxyTemplParams}
+\begin{DoxyReturn}{Returns}
+Replaced script(\+C)
+\end{DoxyReturn}
+\begin{Desc}
+\item[Type Constraints]\begin{description}
+\item[{\em O} : {\em Mono\+Behaviour}]\item[{\em C} : {\em Mono\+Behaviour}]\end{description}
+\end{Desc}
+
+
+Definition at line \doxymbox{\hyperlink{_c_8_game_objects_8cs_source_l00071}{71}} of file \doxymbox{\hyperlink{_c_8_game_objects_8cs_source}{C.\+Game\+Objects.\+cs}}.
+
+Here is the call graph for this function:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_unity_interface_1_1_collections_a06d53d21ec798e24f5c1168acd5a1eda_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_unity_interface_1_1_collections_ae10c779a17834c0ab592ad1f156aa026}\index{UnityInterface.Collections@{UnityInterface.Collections}!Rescript$<$ O, C $>$@{Rescript$<$ O, C $>$}}
+\index{Rescript$<$ O, C $>$@{Rescript$<$ O, C $>$}!UnityInterface.Collections@{UnityInterface.Collections}}
+\doxysubsubsection{\texorpdfstring{Rescript$<$ O, C $>$()}{Rescript< O, C >()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_unity_interface_1_1_collections_ae10c779a17834c0ab592ad1f156aa026} 
+C Unity\+Interface.\+Collections.\+Rescript$<$ O, C $>$ (\begin{DoxyParamCaption}\item[{O}]{source}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+The game\+Object with script(\+O) and replace it to script(\+C). 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em O} & Script(\+O) type\\
+\hline
+{\em C} & Script(\+C) type\\
+\hline
+\end{DoxyTemplParams}
+\begin{DoxyReturn}{Returns}
+Replaced script(\+C)
+\end{DoxyReturn}
+\begin{Desc}
+\item[Type Constraints]\begin{description}
+\item[{\em O} : {\em Mono\+Behaviour}]\item[{\em C} : {\em Mono\+Behaviour}]\end{description}
+\end{Desc}
+
+
+Definition at line \doxymbox{\hyperlink{_c_8_game_objects_8cs_source_l00049}{49}} of file \doxymbox{\hyperlink{_c_8_game_objects_8cs_source}{C.\+Game\+Objects.\+cs}}.
+
+\Hypertarget{class_unity_interface_1_1_collections_a347fa3710a4bdac9e823fb84124ba98d}\index{UnityInterface.Collections@{UnityInterface.Collections}!SafeSplit@{SafeSplit}}
+\index{SafeSplit@{SafeSplit}!UnityInterface.Collections@{UnityInterface.Collections}}
+\doxysubsubsection{\texorpdfstring{SafeSplit()}{SafeSplit()}}
+{\footnotesize\ttfamily \label{class_unity_interface_1_1_collections_a347fa3710a4bdac9e823fb84124ba98d} 
+string\+[$\,$]\+ Unity\+Interface.\+Collections.\+Safe\+Split (\begin{DoxyParamCaption}\item[{this string}]{s}{, }\item[{params char\+[$\,$]}]{seperator}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \doxymbox{\hyperlink{_c_8_ants_8cs_source_l00057}{57}} of file \doxymbox{\hyperlink{_c_8_ants_8cs_source}{C.\+Ants.\+cs}}.
+
+\Hypertarget{class_unity_interface_1_1_collections_a17d5557cdd8eb704a0244f24380d7e50}\index{UnityInterface.Collections@{UnityInterface.Collections}!ScrollEnum$<$ T $>$@{ScrollEnum$<$ T $>$}}
+\index{ScrollEnum$<$ T $>$@{ScrollEnum$<$ T $>$}!UnityInterface.Collections@{UnityInterface.Collections}}
+\doxysubsubsection{\texorpdfstring{ScrollEnum$<$ T $>$()}{ScrollEnum< T >()}}
+{\footnotesize\ttfamily \label{class_unity_interface_1_1_collections_a17d5557cdd8eb704a0244f24380d7e50} 
+T Unity\+Interface.\+Collections.\+Scroll\+Enum$<$ T $>$ (\begin{DoxyParamCaption}\item[{this T}]{enum\+Base}{, }\item[{int}]{direction}{, }\item[{int}]{custom\+Length\+Subtract}{ = {\ttfamily 1}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Scroll the int in \+[0,Enum\+Length-\/1]. Enum must be int-\/based. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em enum\+Base} & \\
+\hline
+{\em direction} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\begin{Desc}
+\item[Type Constraints]\begin{description}
+\item[{\em T} : {\em Enum}]\end{description}
+\end{Desc}
+
+
+Definition at line \doxymbox{\hyperlink{_c_8_ants_8cs_source_l00081}{81}} of file \doxymbox{\hyperlink{_c_8_ants_8cs_source}{C.\+Ants.\+cs}}.
+
+\Hypertarget{class_unity_interface_1_1_collections_a0b5131c52e2d27fdbf7cac69c85989f0}\index{UnityInterface.Collections@{UnityInterface.Collections}!SetReferencesFromGameObject@{SetReferencesFromGameObject}}
+\index{SetReferencesFromGameObject@{SetReferencesFromGameObject}!UnityInterface.Collections@{UnityInterface.Collections}}
+\doxysubsubsection{\texorpdfstring{SetReferencesFromGameObject()}{SetReferencesFromGameObject()}}
+{\footnotesize\ttfamily \label{class_unity_interface_1_1_collections_a0b5131c52e2d27fdbf7cac69c85989f0} 
+void Unity\+Interface.\+Collections.\+Set\+References\+From\+Game\+Object (\begin{DoxyParamCaption}\item[{this Component}]{injection}{, }\item[{List$<$(Component, List$<$ string $>$)$>$}]{data}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \doxymbox{\hyperlink{_c_8_game_objects_8cs_source_l00086}{86}} of file \doxymbox{\hyperlink{_c_8_game_objects_8cs_source}{C.\+Game\+Objects.\+cs}}.
+
+\Hypertarget{class_unity_interface_1_1_collections_a080b461f84bf326172be6214fbfddfe9}\index{UnityInterface.Collections@{UnityInterface.Collections}!SetValue$<$ T $>$@{SetValue$<$ T $>$}}
+\index{SetValue$<$ T $>$@{SetValue$<$ T $>$}!UnityInterface.Collections@{UnityInterface.Collections}}
+\doxysubsubsection{\texorpdfstring{SetValue$<$ T $>$()}{SetValue< T >()}}
+{\footnotesize\ttfamily \label{class_unity_interface_1_1_collections_a080b461f84bf326172be6214fbfddfe9} 
+void Unity\+Interface.\+Collections.\+Set\+Value$<$ T $>$ (\begin{DoxyParamCaption}\item[{this object}]{obj}{, }\item[{string}]{name}{, }\item[{T}]{value}{, }\item[{Binding\+Flags}]{flags}{ = {\ttfamily bindingFlagsDefault}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \doxymbox{\hyperlink{_c_8_variables_management_8cs_source_l00026}{26}} of file \doxymbox{\hyperlink{_c_8_variables_management_8cs_source}{C.\+Variables\+Management.\+cs}}.
+
+\Hypertarget{class_unity_interface_1_1_collections_a71358e16837b38cb22eb62c0f0d9fee8}\index{UnityInterface.Collections@{UnityInterface.Collections}!StartGetFroms@{StartGetFroms}}
+\index{StartGetFroms@{StartGetFroms}!UnityInterface.Collections@{UnityInterface.Collections}}
+\doxysubsubsection{\texorpdfstring{StartGetFroms()}{StartGetFroms()}}
+{\footnotesize\ttfamily \label{class_unity_interface_1_1_collections_a71358e16837b38cb22eb62c0f0d9fee8} 
+void Unity\+Interface.\+Collections.\+Start\+Get\+Froms (\begin{DoxyParamCaption}\item[{this Component}]{component}{, }\item[{Binding\+Flags}]{flags}{ = {\ttfamily bindingFlagsForMerge}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \doxymbox{\hyperlink{_c_8_get_from_8cs_source_l00010}{10}} of file \doxymbox{\hyperlink{_c_8_get_from_8cs_source}{C.\+Get\+From.\+cs}}.
+
+\Hypertarget{class_unity_interface_1_1_collections_a3256001d418a9d64f154af20a1756d0d}\index{UnityInterface.Collections@{UnityInterface.Collections}!ToGameObject@{ToGameObject}}
+\index{ToGameObject@{ToGameObject}!UnityInterface.Collections@{UnityInterface.Collections}}
+\doxysubsubsection{\texorpdfstring{ToGameObject()}{ToGameObject()}}
+{\footnotesize\ttfamily \label{class_unity_interface_1_1_collections_a3256001d418a9d64f154af20a1756d0d} 
+Game\+Object Unity\+Interface.\+Collections.\+To\+Game\+Object (\begin{DoxyParamCaption}\item[{this Base\+Unity\+Plugin}]{plugin}{, }\item[{bool}]{to\+Prefab}{, }\item[{bool}]{apply\+Values}{, }\item[{params Type\+[$\,$]}]{types}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \doxymbox{\hyperlink{_c_8_game_objects_8cs_source_l00015}{15}} of file \doxymbox{\hyperlink{_c_8_game_objects_8cs_source}{C.\+Game\+Objects.\+cs}}.
+
+\Hypertarget{class_unity_interface_1_1_collections_a4ecd14b02a2e2f0aea3e7dc7c4943215}\index{UnityInterface.Collections@{UnityInterface.Collections}!ToGameObject$<$ T $>$@{ToGameObject$<$ T $>$}}
+\index{ToGameObject$<$ T $>$@{ToGameObject$<$ T $>$}!UnityInterface.Collections@{UnityInterface.Collections}}
+\doxysubsubsection{\texorpdfstring{ToGameObject$<$ T $>$()}{ToGameObject< T >()}}
+{\footnotesize\ttfamily \label{class_unity_interface_1_1_collections_a4ecd14b02a2e2f0aea3e7dc7c4943215} 
+T Unity\+Interface.\+Collections.\+To\+Game\+Object$<$ T $>$ (\begin{DoxyParamCaption}\item[{this Base\+Unity\+Plugin}]{plugin}{, }\item[{bool}]{to\+Prefab}{ = {\ttfamily false}, }\item[{bool}]{apply\+Values}{ = {\ttfamily false}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \doxymbox{\hyperlink{_c_8_game_objects_8cs_source_l00014}{14}} of file \doxymbox{\hyperlink{_c_8_game_objects_8cs_source}{C.\+Game\+Objects.\+cs}}.
+
+\Hypertarget{class_unity_interface_1_1_collections_a31cd4b5e248efdbb3f8fe7e61f64db42}\index{UnityInterface.Collections@{UnityInterface.Collections}!UniqueCheck$<$ T $>$@{UniqueCheck$<$ T $>$}}
+\index{UniqueCheck$<$ T $>$@{UniqueCheck$<$ T $>$}!UnityInterface.Collections@{UnityInterface.Collections}}
+\doxysubsubsection{\texorpdfstring{UniqueCheck$<$ T $>$()}{UniqueCheck< T >()}}
+{\footnotesize\ttfamily \label{class_unity_interface_1_1_collections_a31cd4b5e248efdbb3f8fe7e61f64db42} 
+T\+[$\,$]\+ Unity\+Interface.\+Collections.\+Unique\+Check$<$ T $>$ (\begin{DoxyParamCaption}\item[{this T\+[$\,$]}]{array}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\begin{Desc}
+\item[Type Constraints]\begin{description}
+\item[{\em T} : {\em class}]\end{description}
+\end{Desc}
+
+
+Definition at line \doxymbox{\hyperlink{_c_8_ants_8cs_source_l00050}{50}} of file \doxymbox{\hyperlink{_c_8_ants_8cs_source}{C.\+Ants.\+cs}}.
+
+
+
+\label{class_unity_interface_1_1_collections_doc-property-members}
+\Hypertarget{class_unity_interface_1_1_collections_doc-property-members}
+\doxysubsection{Property Documentation}
+\Hypertarget{class_unity_interface_1_1_collections_a7324c5bfb075da648bad83a275260255}\index{UnityInterface.Collections@{UnityInterface.Collections}!Harmony@{Harmony}}
+\index{Harmony@{Harmony}!UnityInterface.Collections@{UnityInterface.Collections}}
+\doxysubsubsection{\texorpdfstring{Harmony}{Harmony}}
+{\footnotesize\ttfamily \label{class_unity_interface_1_1_collections_a7324c5bfb075da648bad83a275260255} 
+Harmony Unity\+Interface.\+Collections.\+Harmony\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [get]}}
+
+
+
+Use patches flexibly! 
+
+
+
+Definition at line \doxymbox{\hyperlink{_c_8_codes_8cs_source_l00014}{14}} of file \doxymbox{\hyperlink{_c_8_codes_8cs_source}{C.\+Codes.\+cs}}.
+
